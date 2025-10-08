@@ -1,8 +1,20 @@
 
 from enum import Enum
 import threading
-
 import openpyxl
+
+
+# Guia de uso para o rudinei :
+
+# Como carregar os dados da tabela ?
+# declare a tabela
+# tab = Tabela(localENome=TABELA_MATLAB,qtd_linhas=0,qtd_colunas=NUMCOLUNAS)
+# parametros = pegarParametros(localENome=TABELA_MATLAB,coluna=0,valor=-1000)
+# Parametros é um objeto que facilita o acesso aos parametros
+
+# Para salvar um valor é :
+# salvarColunaSaida(localENome=TABELA_MATLAB, coluna=coluna, valor=valor)
+# coluna basta passar o index da coluna mesmo, algo como o iterador de parametros.
 
 # Cria o mutex
 mutex = threading.Lock()
@@ -119,7 +131,4 @@ class Tabela :
         return
         
 
-# codigo teste
 
-tab = Tabela(localENome=TABELA_MATLAB,qtd_linhas=0,qtd_colunas=NUMCOLUNAS)
-tab.salvarColunaSaida(localENome=TABELA_MATLAB,coluna=0,valor=-1000)
