@@ -1,67 +1,105 @@
 from inverseProdOfTwoVariables import InverseProdOfTwoVariables
 from prodOfTwoVariables import ProdOfNormalRVs
-from Tabela import Tabela,Parametros
+from Tabela import Tabela, Parametros
 import threading
-import time
 
-def processoA_thread(parametro : Parametros):
-    muX_inv = parametro.mux1     
-    sigmaX_inv = parametro.sigmax1 
-    muY_inv = parametro.muy    
-    sigmaY_inv = parametro.sigmay
-    target_p_inv = 0.98
+mux_parametros = threading.Lock()
 
+def calculaLB_thread(parametro: Parametros, index: int):
     try:
-        # print("f\n ---------- InverseProdOfTwoVariables -----------\n")
-        solver = InverseProdOfTwoVariables(muX_inv, sigmaX_inv, muY_inv, sigmaY_inv, target_p_inv)
-    
-        c_solution, mc_p = solver.solve_inverse_cdf(n_samples=5000000)
-
-        # solver._print_verification_results()
-
-        tabela.salvarColunaSaida(valor=c_solution,parametro=i,linha_lwb=0)
-        # solver.plot_cdf()
+        print(f"Thread {index} iniciada - mux1: {parametro.mux1}, muy: {parametro.muy}")
+        
+        solver = InverseProdOfTwoVariables(parametro.mux1, parametro.sigmax1, 
+                                         parametro.muy, parametro.sigmay, 0.98)
+        c_solution = solver.solve_inverse_cdf()
+        
+        # Modifica diretamente o objeto Parametros
+        with mux_parametros:
+            parametro.lw = c_solution
+            print(f"✓ Thread {index} concluída: lw = {c_solution}")
             
     except Exception as e:
-        print(f"\nErro: {e}")
+        print(f"✗ Erro thread {index}: {e}")
+        with mux_parametros:
+            parametro.lw = 0.0
+def calculaDESV_thread(parametro: Parametros, index: int):
+    try:
+        print(f"Thread {index} iniciada - mux1: {parametro.mux1}, muy: {parametro.muy}")
+        
+        solver = InverseProdOfTwoVariables(parametro.mux1, parametro.sigmax1, 
+                                         parametro.muy, parametro.sigmay, 0.98)
+        c_solution = solver.solve_inverse_cdf()
+        
+        # Modifica diretamente o objeto Parametros
+        with mux_parametros:
+            parametro.lw = c_solution
+            print(f"✓ Thread {index} concluída: lw = {c_solution}")
+            
+    except Exception as e:
+        print(f"✗ Erro thread {index}: {e}")
+        with mux_parametros:
+            parametro.lw = 0.0
+def calculaPROB_thread(parametro: Parametros, index: int):
+    try:
+        print(f"Thread {index} iniciada - mux1: {parametro.mux1}, muy: {parametro.muy}")
+        
+        solver = InverseProdOfTwoVariables(parametro.mux1, parametro.sigmax1, 
+                                         parametro.muy, parametro.sigmay, 0.98)
+        c_solution = solver.solve_inverse_cdf()
+        
+        # Modifica diretamente o objeto Parametros
+        with mux_parametros:
+            parametro.lw = c_solution
+            print(f"✓ Thread {index} concluída: lw = {c_solution}")
+            
+    except Exception as e:
+        print(f"✗ Erro thread {index}: {e}")
+        with mux_parametros:
+            parametro.lw = 0.0
+
+
+
 
 
 if __name__ == "__main__":
     THREAD_MODE = True
-    #================== Inverse ==========================
+    tabela = Tabela(pagina='Main_variables', localENome='Stock_Data_in_days_cv_0,2_5V.xlsx', 
+                   matriz_linha=0, matriz_coluna=0)
+    parametros_originais = tabela.pegarParametros()
 
-    tabela = Tabela(pagina='Matlab_Data',localENome='Stock_Data_in_days_cv_0,2_5V.xlsx')
-    parametros = tabela.pegarParametros()
-
-
-    for i in parametros :
-        if (i.mux1 > 0) :
-            if THREAD_MODE :
-                threading.Thread(target=processoA_thread, args=(i,)).start()
-            else :
-                processoA_thread(parametro=i)
-            
-        
-
-    exit(0)
-    #============== Prod ==================
-    muX_prod = 100.0        
-    sigmaX_prod = 35.8305     
-    muY_prod = 30.0      
-    sigmaY_prod = 1.6433    
-    c = 3633.0      
-    n_samples_mc = 1000000 
+    # Filtrar e mostrar parâmetros válidos
+    parametros_validos = [p for p in parametros_originais if p.mux1 > 0]
+    print(f"Encontrados {len(parametros_validos)} parâmetros válidos para processamento")
     
-    try:
-        print("f\n ---------- ProdOFTwoVariables -----------\n")
+    # Mostrar estado inicial
+    for i, p in enumerate(parametros_validos):
+        print(f"Parametro {i}: lw inicial = {p.lw}")
 
-        analyzer = ProdOfNormalRVs(muX_prod, sigmaX_prod, muY_prod, sigmaY_prod, c)
-
-        analyzer.run_analysis(n_samples=n_samples_mc)
-
-        analyzer.print_results()
-
-        analyzer.plot_cdfs_and_pdfs()
+    # Processamento (threads ou sequencial)
+    if THREAD_MODE:
+        threads = []
+        for i, param in enumerate(parametros_validos):
+            threadlw = threading.Thread(target=calculaLB_thread, args=(param, i))
+            threadlw.start()
+            threads.append(threadlw)
+            threaddesv = threading.Thread(target=calculaDESV_thread, args=(param, i))
+            threaddesv.start()
+            threads.append(threaddesv)
+            threadprob = threading.Thread(target=calculaPROB_thread, args=(param, i))
+            threadprob.start()
+            threads.append(threadprob)
         
-    except Exception as e:
-        print(f"\nErro: {e}")
+        # Aguardar conclusão
+        for i, thread in enumerate(threads):
+            thread.join()
+    else:
+        for i, param in enumerate(parametros_validos):
+            calculaLB_thread(param, i)
+
+    if parametros_validos:
+        tabela.salvarEmLote(parametros=parametros_validos)
+        print(f"\n✓ {len(parametros_validos)} resultados salvos com sucesso!")
+    else:
+        print("Nenhum resultado para salvar")
+
+    print("Processo finalizado!")

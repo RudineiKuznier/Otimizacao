@@ -45,6 +45,9 @@ class Parametros:
         self.coluna_salvar = coluna_salvar
         self.nome_tabela = nome_tabela
         self.pagina_tabela = pagina_tabela
+        self.lw = 0
+        self.desv = 0
+        self.prob = 0
 
     def __repr__(self):
         return (f"Parâmetros da tabela : \n muy = {self.muy} \n mux1 = {self.mux1} \n sigmax1 = {self.sigmax1} \n sigmay = {self.sigmay} \n mux2 = {self.mux2} \n sigmax2 = {self.sigmax2} \n linha = {self.linha_salvar} \n coluna = {self.coluna_salvar} \n ")
@@ -114,52 +117,51 @@ class Tabela :
     def pegarParametros(self) -> list[Parametros] :
         return self.tabelas
     
-    def salvarEmLote(self,valores : list[float], parametro : list[Parametros],lwb: bool = False, desvpad: bool = False,probabilidade : bool = False) :
-        return
-
-    def salvarColunaSaida(self, valor: float, parametro : Parametros, lwb: bool = False, desvpad: bool = False,probabilidade : bool = False):
-        # Pede permissão
+    def salvarEmLote(self, parametros : list[Parametros]) :
         mutex.acquire()
         try:
             try:
                 # Carregar o arquivo
-                workbook = openpyxl.load_workbook(parametro.nome_tabela)
-                
+                workbook = openpyxl.load_workbook(parametros[0].nome_tabela)
                 # Selecionar a página específica
-                sheet = workbook[parametro.pagina_tabela]
-                
-                if (desvpad):
-                    linha = Posicoes.SAIDADESVPAD.linha
-                elif (lwb):
-                    linha = Posicoes.SAIDALBW.linha
-                elif (probabilidade):
-                    linha = Posicoes.SAIDAPROB.linha
-                else:
-                    print("ERRO AO TENTAR SALVAR NA TABELA, NÃO FOI PASSADO O PARÂMETRO DA LINHA DE SALVAMENTO.")
-                    exit(1) 
-                coluna = parametro.coluna_salvar
-                # Substituir o valor na posição (linha, coluna + 4)
-                print(f"Salvando ({valor}) na coluna ({coluna}) e linha ({linha + parametro.linha_salvar}) \n")
-                sheet.cell(row=parametro.linha_salvar + linha, column=coluna).value = valor
-                
-                # Salvar o arquivo
-                workbook.save(parametro.nome_tabela)
+                sheet = workbook[parametros[0].pagina_tabela]
+                for index in range(len(parametros)) :
+                    coluna = parametros[index].coluna_salvar
+                    linha = parametros[index].linha_salvar 
+                    # Substituir o valor na posição (linha, coluna + 4)
+                    # print(f"Salvando ({valor}) na coluna ({coluna}) e linha ({linha + parametro.linha_salvar}) \n")
+                    sheet.cell(row=linha + Posicoes.SAIDADESVPAD.linha, column=coluna).value = parametros[index].desv
+                    sheet.cell(row=linha + Posicoes.SAIDALBW.linha, column=coluna).value = parametros[index].lw
+                    sheet.cell(row=linha + Posicoes.SAIDAPROB.linha, column=coluna).value = parametros[index].prob
+                    # Salvar o arquivo
+                workbook.save(parametros[0].nome_tabela)
                 workbook.close()
-                
-                # print(f"Valor {valor} salvo em {parametro.pagina_tabela}({ parametro.linha_salvar + linha}, {parametro.coluna_salvar + 4})")
-                
             except FileNotFoundError:
-                print(f"Erro: Arquivo '{parametro.nome_tabela}' não encontrado")
+                print(f"Erro: Arquivo '{parametros[0].nome_tabela}' não encontrado")
             except KeyError:
-                print(f"Erro: Página '{parametro.pagina_tabela}' não encontrada. Páginas disponíveis: {workbook.sheetnames}")
+                print(f"Erro: Página '{parametros[0].pagina_tabela}' não encontrada. Páginas disponíveis: {workbook.sheetnames}")
             except PermissionError:
-                print(f"Erro: Sem permissão para escrever no arquivo '{parametro.nome_tabela}'")
+                print(f"Erro: Sem permissão para escrever no arquivo '{parametros[0].nome_tabela}'")
             except Exception as e:
                 print(f"Erro ao salvar arquivo: {e}")
+                
+            
 
         finally:
             # Devolve o mutex
             mutex.release()
+        return
+
+    def salvarColunaSaida(self, valor: float, parametro : Parametros, lwb: bool = False, desvpad: bool = False,probabilidade : bool = False):
+        # Pede permissão
+        
+                
+                
+                
+                
+                # print(f"Valor {valor} salvo em {parametro.pagina_tabela}({ parametro.linha_salvar + linha}, {parametro.coluna_salvar + 4})")
+                
+            
         
         return
         
@@ -167,7 +169,15 @@ class Tabela :
 
 # tab = Tabela(pagina= PAGINA_NO_DOCUMENTO,localENome= LOCAL_NOME_TABELA,matriz_linha=0,matriz_coluna=1)
 # parametros = tab.pegarParametros()
-# index = 0
-# for i in parametros :
-#     tab.salvarColunaSaida(valor=index,parametro=i,lwb=True)
-#     index += 1
+# valoreslb = []
+# valoresdes = []
+# valoresprob = []
+# for p in range(len(parametros)):
+#     valoreslb.append(-40028922)
+#     valoresdes.append(-0.000001)
+#     valoresprob.append(-123456789)
+
+
+# tab.salvarEmLote(valores=valoreslb,parametros=parametros,lwb=True)
+# tab.salvarEmLote(valores=valoresdes,parametros=parametros,desvpad=True)
+# tab.salvarEmLote(valores=valoresprob,parametros=parametros,probabilidade=True)

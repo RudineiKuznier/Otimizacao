@@ -1,25 +1,35 @@
 import numpy as np
+from typing import Tuple
 from scipy.stats import norm, kstest 
 from scipy.integrate import quad
 from scipy.stats import gaussian_kde 
 import matplotlib.pyplot as plt
-from joblib import Parallel, delayed
-import os
 
 class ProdOfNormalRVs:
-    def __init__(self, muX, sigmaX, muY, sigmaY, c):
-        self.muX = muX      
-        self.sigmaX = sigmaX    
-        self.muY = muY      
-        self.sigmaY = sigmaY   
-        self.c = c 
+    def __init__(
+        self,
+        muX: float,
+        sigmaX: float,
+        muY: float,
+        sigmaY: float,
+        c = None
+    ):
+        self.muX: float = muX      
+        self.sigmaX: float = sigmaX    
+        self.muY: float = muY      
+        self.sigmaY: float = sigmaY   
 
-        self.quad_limit = 200 
-        self.quad_err_tol = 1e-8 
+        if c is None:
+            self.c: float = muX * muY
+        else:
+            self.c: float = c 
 
-        self.theoretical_mean = muX * muY
-        self.theoretical_variance = muX**2 * sigmaY**2 + muY**2 * sigmaX**2 + sigmaX**2 * sigmaY**2
-        self.theoretical_std = np.sqrt(self.theoretical_variance)
+        self.quad_limit: int = 200 
+        self.quad_err_tol: float = 1e-8 
+
+        self.theoretical_mean: float = muX * muY
+        self.theoretical_variance: float = muX**2 * sigmaY**2 + muY**2 * sigmaX**2 + sigmaX**2 * sigmaY**2
+        self.theoretical_std: float = np.sqrt(self.theoretical_variance)
         
         self.mc_result = None
         self.numerical_result = None
@@ -30,7 +40,7 @@ class ProdOfNormalRVs:
         self.empirical_std = None
 
     @staticmethod
-    def _integrand(x, c, muX, sigmaX, muY, sigmaY, positive_x):
+    def _integrand(x:float, c:float, muX:float, sigmaX:float, muY:float, sigmaY:float, positive_x:bool) -> float:
         if np.abs(x) < 1e-12:
             return 0.0
         
@@ -43,7 +53,7 @@ class ProdOfNormalRVs:
             
         return prob_Y * norm.pdf(x, loc=muX, scale=sigmaX)
 
-    def compute_product_cdf_1d(self, c_val):
+    def compute_product_cdf_1d(self, c_val: float) -> float:
         part1, _ = quad(ProdOfNormalRVs._integrand, 
                         -np.inf, 0, 
                         args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, False), 
@@ -56,9 +66,9 @@ class ProdOfNormalRVs:
                         limit=self.quad_limit, 
                         epsrel=self.quad_err_tol)
         
-        return part1 + part2
+        return round(part1 + part2, 6)
 
-    def run_analysis(self, n_samples=1000000):
+    def solve_cdf(self, n_samples=1000000) -> float:
         self.n_samples = n_samples
 
         X_samples = self.muX + self.sigmaX * np.random.randn(n_samples)
@@ -66,14 +76,14 @@ class ProdOfNormalRVs:
         self.Z_samples = X_samples * Y_samples
         
         self.mc_result = np.mean(self.Z_samples <= self.c)
-    
-        self.numerical_result = self.compute_product_cdf_1d(self.c)
 
         self.empirical_mean = np.mean(self.Z_samples)
         self.empirical_variance = np.var(self.Z_samples)
         self.empirical_std = np.std(self.Z_samples)
 
-    def print_results(self):
+        return round(self.theoretical_std,6)
+
+    def _print_verification_results(self) -> None:
         """
         Exibe todos os resultados de momentos e probabilidades.
         """
@@ -84,7 +94,7 @@ class ProdOfNormalRVs:
         c = self.c
         k = np.sqrt(c * 14.4)
 
-        print('Distribution Moments Comparison\n')
+        print('## Distribution Moments Comparison\n')
         print('Theoretical Moments:')
         print(f'  Mean: {self.theoretical_mean:.4f}')
         print(f'  Variance: {self.theoretical_variance:.4f}')
@@ -104,7 +114,7 @@ class ProdOfNormalRVs:
         std_err_perc = np.abs(std_err) / self.theoretical_std * 100
         print(f'  Std Dev: {self.empirical_std:.4f} (Error: {std_err:.4f}, {std_err_perc:.4f}%)\n')
 
-        print('Probability Results\n')
+        print('## Probability Results')
         print(f'Numerical Integration: {self.numerical_result:.6f}')
         print(f'Monte Carlo Simulation: {self.mc_result:.6f}')
         abs_diff = np.abs(self.numerical_result - self.mc_result)
@@ -113,15 +123,13 @@ class ProdOfNormalRVs:
         
         print(f'\nk = sqrt(c * 14.4) = {k:.6f}')
         
-    def plot_cdfs_and_pdfs(self, save_diretorio="./images_prodOfTwoVariables", image_format="png", dpi=300):
+    def plot_cdfs(self) -> None:
         """
         Gera os três gráficos: CDF, PDF e Diferença da CDF.
         """
         if self.Z_samples is None:
             print("ERRO: Execute run_analysis() primeiro.")
             return
-        
-        os.makedirs(save_diretorio, exist_ok=True)
 
         c = self.c
         
@@ -134,20 +142,15 @@ class ProdOfNormalRVs:
         z_range = np.linspace(z_min_auto, z_max_auto, 1000)
 
         print("\nCalculando valores da CDF para o plot (Integração)...")
-        cdf_integration = np.array(
-            Parallel(n_jobs=-1)(
-                delayed(self.compute_product_cdf_1d)(z) for z in z_range
-            )
-        )
+        cdf_integration = np.array([
+            self.compute_product_cdf_1d(z) for z in z_range
+        ])
 
         print("Calculando valores da CDF para o plot (Monte Carlo)...")
-        #cdf_empirical = np.array(
-         #   Parallel(n_jobs=-1)(
-          #      delayed(np.mean)(self.Z_samples <= z) for z in z_range
-           # )
-        #)
-        cdf_empirical = np.mean(self.Z_samples[:, None] <= z_range[None, :], axis=0)
-
+        cdf_empirical = np.array([
+            np.mean(self.Z_samples <= z) for z in z_range
+        ])
+        
         kde = gaussian_kde(self.Z_samples)
         pdf_empirical_kde = kde.evaluate(z_range)
     
@@ -165,12 +168,8 @@ class ProdOfNormalRVs:
         plt.grid(True)
         plt.xlim([z_min_auto, z_max_auto])
         plt.ylim([0, 1])
-        
-        cdf_filename = f"cdf_plot_muX{self.muX}_sigmaX{self.sigmaX}_muY{self.muY}_sigmaY{self.sigmaY}_c{c}.{image_format}"
-        cdf_filepath = os.path.join(save_diretorio, cdf_filename)
-        plt.savefig(cdf_filepath, dpi=dpi, bbox_inches='tight')
-        plt.close() 
-        
+        plt.show()
+
     
         plt.figure(figsize=(8, 6))
         plt.plot(z_range, pdf_values, 'b-', linewidth=2, label='Aprox. Normal Teórica')
@@ -184,11 +183,7 @@ class ProdOfNormalRVs:
         plt.legend(loc='upper left')
         plt.grid(True)
         plt.xlim([z_min_auto, z_max_auto])
-        
-        pdf_filename = f"pdf_plot_muX{self.muX}_sigmaX{self.sigmaX}_muY{self.muY}_sigmaY{self.sigmaY}_c{c}.{image_format}"
-        pdf_filepath = os.path.join(save_diretorio, pdf_filename)
-        plt.savefig(pdf_filepath, dpi=dpi, bbox_inches='tight')
-        plt.close()
+        plt.show()
 
         cdf_difference = np.abs(cdf_integration - cdf_empirical)
         max_diff = np.max(cdf_difference)
@@ -205,10 +200,6 @@ class ProdOfNormalRVs:
         plt.ylabel('Absolute Difference')
         plt.title('Difference between Integration and Monte Carlo CDFs')
         plt.grid(True)
-        
-        diff_filename = f"cdf_diff_plot_muX{self.muX}_sigmaX{self.sigmaX}_muY{self.muY}_sigmaY{self.sigmaY}_c{c}.{image_format}"
-        diff_filepath = os.path.join(save_diretorio, diff_filename)
-        plt.savefig(diff_filepath, dpi=dpi, bbox_inches='tight')
-        plt.close()
+        plt.show()
 
 
