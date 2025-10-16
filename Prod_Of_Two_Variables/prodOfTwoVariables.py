@@ -1,23 +1,35 @@
 import numpy as np
+from typing import Tuple
 from scipy.stats import norm, kstest 
 from scipy.integrate import quad
 from scipy.stats import gaussian_kde 
 import matplotlib.pyplot as plt
 
 class ProdOfNormalRVs:
-    def __init__(self, muX, sigmaX, muY, sigmaY, c):
-        self.muX = muX      
-        self.sigmaX = sigmaX    
-        self.muY = muY      
-        self.sigmaY = sigmaY   
-        self.c = c 
+    def __init__(
+        self,
+        muX: float,
+        sigmaX: float,
+        muY: float,
+        sigmaY: float,
+        c = None
+    ):
+        self.muX: float = muX      
+        self.sigmaX: float = sigmaX    
+        self.muY: float = muY      
+        self.sigmaY: float = sigmaY   
 
-        self.quad_limit = 200 
-        self.quad_err_tol = 1e-8 
+        if c is None:
+            self.c: float = muX * muY
+        else:
+            self.c: float = c 
 
-        self.theoretical_mean = muX * muY
-        self.theoretical_variance = muX**2 * sigmaY**2 + muY**2 * sigmaX**2 + sigmaX**2 * sigmaY**2
-        self.theoretical_std = np.sqrt(self.theoretical_variance)
+        self.quad_limit: int = 200 
+        self.quad_err_tol: float = 1e-8 
+
+        self.theoretical_mean: float = muX * muY
+        self.theoretical_variance: float = muX**2 * sigmaY**2 + muY**2 * sigmaX**2 + sigmaX**2 * sigmaY**2
+        self.theoretical_std: float = np.sqrt(self.theoretical_variance)
         
         self.mc_result = None
         self.numerical_result = None
@@ -28,7 +40,7 @@ class ProdOfNormalRVs:
         self.empirical_std = None
 
     @staticmethod
-    def _integrand(x, c, muX, sigmaX, muY, sigmaY, positive_x):
+    def _integrand(x:float, c:float, muX:float, sigmaX:float, muY:float, sigmaY:float, positive_x:bool) -> float:
         if np.abs(x) < 1e-12:
             return 0.0
         
@@ -41,7 +53,7 @@ class ProdOfNormalRVs:
             
         return prob_Y * norm.pdf(x, loc=muX, scale=sigmaX)
 
-    def compute_product_cdf_1d(self, c_val):
+    def compute_product_cdf_1d(self, c_val: float) -> float:
         part1, _ = quad(ProdOfNormalRVs._integrand, 
                         -np.inf, 0, 
                         args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, False), 
@@ -54,9 +66,9 @@ class ProdOfNormalRVs:
                         limit=self.quad_limit, 
                         epsrel=self.quad_err_tol)
         
-        return part1 + part2
+        return float(part1 + part2)
 
-    def run_analysis(self, n_samples=1000000):
+    def solve_cdf(self, n_samples=1000000) -> Tuple[float, float]:
         self.n_samples = n_samples
 
         X_samples = self.muX + self.sigmaX * np.random.randn(n_samples)
@@ -71,7 +83,9 @@ class ProdOfNormalRVs:
         self.empirical_variance = np.var(self.Z_samples)
         self.empirical_std = np.std(self.Z_samples)
 
-    def print_results(self):
+        return round(self.theoretical_std,6), round(self.numerical_result, 6)
+
+    def _print_verification_results(self) -> None:
         """
         Exibe todos os resultados de momentos e probabilidades.
         """
@@ -111,7 +125,7 @@ class ProdOfNormalRVs:
         
         print(f'\nk = sqrt(c * 14.4) = {k:.6f}')
         
-    def plot_cdfs_and_pdfs(self):
+    def plot_cdfs(self) -> None:
         """
         Gera os três gráficos: CDF, PDF e Diferença da CDF.
         """
