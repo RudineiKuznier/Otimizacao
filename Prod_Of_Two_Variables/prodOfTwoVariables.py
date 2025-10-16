@@ -66,9 +66,9 @@ class ProdOfNormalRVs:
                         limit=self.quad_limit, 
                         epsrel=self.quad_err_tol)
         
-        return float(part1 + part2)
+        return round(part1 + part2, 6)
 
-    def solve_cdf(self, n_samples=1000000) -> Tuple[float, float]:
+    def solve_cdf(self, n_samples=1000000) -> float:
         self.n_samples = n_samples
 
         X_samples = self.muX + self.sigmaX * np.random.randn(n_samples)
@@ -76,14 +76,12 @@ class ProdOfNormalRVs:
         self.Z_samples = X_samples * Y_samples
         
         self.mc_result = np.mean(self.Z_samples <= self.c)
-    
-        self.numerical_result = self.compute_product_cdf_1d(self.c)
 
         self.empirical_mean = np.mean(self.Z_samples)
         self.empirical_variance = np.var(self.Z_samples)
         self.empirical_std = np.std(self.Z_samples)
 
-        return round(self.theoretical_std,6), round(self.numerical_result, 6)
+        return round(self.theoretical_std,6)
 
     def _print_verification_results(self) -> None:
         """
