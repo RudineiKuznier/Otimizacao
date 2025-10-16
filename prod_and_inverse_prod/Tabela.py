@@ -4,40 +4,34 @@ import xlwings as xw
 import threading
 import openpyxl
 
-
-# Guia de uso para o rudinei :
-
-# tab = Tabela(linha=i)
-# parametros = tab.pegarParametros()
-# parametros.muy
-# parametros.mux1
-# parametros.sigmax1
-# parametros.sigmay
-# parametros.mux2
-# parametros.sigmax2
-# parametros.linha_salvar
-# tab.salvarColunaSaida(coluna=2,valor=-40028922,linha_lwb=i)
-# tab.salvarColunaSaida(coluna=2,valor=-40028922,linha_divpad=i)
-
 # Cria o mutex
 mutex = threading.Lock()
 
-# inicio da primeira linha coluna
-LINHA_INICIO = 0
-COLUNA_INICIO = 24
-
+# inicio da primeira linha e coluna
+LINHA_INICIO                    = 0
+COLUNA_INICIO                   = 28
+NUM_LINHAS_INICIO_AO_FIM        = 136
+NUM_COLUNAS_INICIO_AO_FIM       = 22
 # diz a quantidade de colunas que separa uma tabela de outra
-NUM_COLUNAS_ENTRE_TABELAS = 0
-
-# Defines de tabelas
-NUMLINHAS       = 3
-NUMCOLUNAS      = 15
-TABELA_MATLAB = "Stock_Data_in_days_cv_0,2_5V.xlsx"
-
-TABELAS_PAGINA = "Matlab_Data"
-
-LINHA_INICIO_RESPOSTA_LWB     =  43
-LINHA_INICIO_RESPOSTA_DESVPAD =  48
+NUM_COLUNAS_ENTRE_MATRIZES      = 0
+# DEFINE DE QUANTIDADES DE LINHAS E COLUNAS NUMA TABELA
+NUMLINHAS                       = 3
+NUMCOLUNAS                      = 15
+# DEFINE DO NÚMERO DE TABELAS EM UMA PÁGINA
+NUM_MATRIZES_NA_PAGINA          = 9
+# DEFINE DAS LOCALIZAÇÕES DOS ARQUIVOS
+LOCAL_NOME_TABELA               = "Stock_Data_in_days_cv_0,2_5V.xlsx"
+PAGINA_NO_DOCUMENTO             = "Main_variables"
+# DEFINE DAS POSIÇÕES DOS VALORES DENTRO DA MATRIZ
+MUY_LINHA                       = 48
+MUX1_LINHA                      = 58
+SIGMAX1_LINHA                   = 63
+SIGMAY_LINHA                    = 68
+MUX2_LINHA                      = 73
+SIGMAX2_LINHA                   = 78
+SAIDADESVPAD_LINHA              = 88
+SAIDALBW_LINHA                  = 83
+SAIDAPROB_LINHA                 = 3
 
 class Parametros:
     def __init__ (self,muy : float,mux1 : float,sigmax1 : float,sigmay : float, mux2 : float, sigmax2 : float, linha_salvar : int, coluna_salvar : int,nome_tabela : str ,pagina_tabela : str):
@@ -58,16 +52,15 @@ class Parametros:
 
 class Posicoes(Enum) :
 
-    MUY             = (8,4) # iguais
-    MUX1             = (18,4) # diferentes
-    SIGMAX1          = (23,4) # diferentes
-    SIGMAY          = (28,4) # iguais
-
-    MUX2             = (33,4) 
-    SIGMAX2          = (38,4)
-
-    SAIDADESVPAD    = (50,4)
-    SAIDALBW        = (45,4)
+    MUY             = (LINHA_INICIO + MUY_LINHA,COLUNA_INICIO) # iguais
+    MUX1            = (LINHA_INICIO + MUX1_LINHA,COLUNA_INICIO) # diferentes
+    SIGMAX1         = (LINHA_INICIO + SIGMAX1_LINHA,COLUNA_INICIO) # diferentes
+    SIGMAY          = (LINHA_INICIO + SIGMAY_LINHA,COLUNA_INICIO) # iguais
+    MUX2            = (LINHA_INICIO + MUX2_LINHA,COLUNA_INICIO) 
+    SIGMAX2         = (LINHA_INICIO + SIGMAX2_LINHA,COLUNA_INICIO)
+    SAIDADESVPAD    = (LINHA_INICIO + SAIDADESVPAD_LINHA,COLUNA_INICIO)
+    SAIDALBW        = (LINHA_INICIO + SAIDALBW_LINHA,COLUNA_INICIO)
+    SAIDAPROB       = (LINHA_INICIO + SAIDAPROB_LINHA,COLUNA_INICIO)
 
     @property
     def linha(self):
@@ -76,15 +69,11 @@ class Posicoes(Enum) :
     @property
     def coluna(self):
         return self.value[1]
-    
-    @property
-    def par(self):
-        return {self.value[0],self.value[1]}
+
     
 
 class Tabela :
-    '" TABELA É NÃO SINCRONIZADA (NÃO MANTÉM O ARQUIVO XLSX ABERTO), SE PRECISAR, CHAMA ATUALIZAR "'
-    def __init__(self,pagina : str, localENome: str):
+    def __init__(self,pagina : str, localENome: str,matriz_linha : int, matriz_coluna : int):
         self.tabelas = []
         mutex.acquire()
         try:
@@ -97,19 +86,21 @@ class Tabela :
                 # Lista as páginas disponíveis se a desejada não existir
                 print(f"Página {pagina} não encontrada.")
                 workbook.close()
-                exit(1) 
+                exit(1)
+            shift_coluna = matriz_coluna * NUM_COLUNAS_INICIO_AO_FIM
+            shift_linha  = matriz_linha * NUM_LINHAS_INICIO_AO_FIM
             for linha in range(NUMLINHAS):
                 for coluna in range(NUMCOLUNAS):
-                    muy = sheet.cell(row=Posicoes.MUY.linha + linha + LINHA_INICIO, column=Posicoes.MUY.coluna + coluna + COLUNA_INICIO).value or 0.0
-                    mux1 = sheet.cell(row=Posicoes.MUX1.linha + linha + LINHA_INICIO, column=Posicoes.MUX1.coluna + coluna + COLUNA_INICIO).value or 0.0
-                    sigmax1 = sheet.cell(row=Posicoes.SIGMAX1.linha + linha + LINHA_INICIO, column=Posicoes.SIGMAX1.coluna + coluna + COLUNA_INICIO).value or 0.0
-                    sigmay = sheet.cell(row=Posicoes.SIGMAY.linha + linha + LINHA_INICIO, column=Posicoes.SIGMAY.coluna + coluna + COLUNA_INICIO).value or 0.0
-                    mux2 = sheet.cell(row=Posicoes.MUX2.linha + linha + LINHA_INICIO, column=Posicoes.MUX2.coluna + coluna + COLUNA_INICIO).value or 0.0
-                    sigmax2 = sheet.cell(row=Posicoes.SIGMAX2.linha + linha + LINHA_INICIO, column=Posicoes.SIGMAX2.coluna + coluna + COLUNA_INICIO).value or 0.0
-                    
-                    parametro = Parametros(muy=muy, mux1=mux1, sigmax1=sigmax1, sigmay=sigmay, mux2=mux2, sigmax2=sigmax2, linha_salvar=linha + LINHA_INICIO,coluna_salvar= coluna + COLUNA_INICIO,nome_tabela=localENome,pagina_tabela=pagina)
+                    muy     = sheet.cell(row=Posicoes.MUY.linha + linha  + shift_linha, column=Posicoes.MUY.coluna + coluna + shift_coluna).value or 0.0
+                    mux1    = sheet.cell(row=Posicoes.MUX1.linha + linha  + shift_linha, column=Posicoes.MUX1.coluna + coluna + shift_coluna).value or 0.0
+                    sigmax1 = sheet.cell(row=Posicoes.SIGMAX1.linha + linha  + shift_linha, column=Posicoes.SIGMAX1.coluna + coluna + shift_coluna).value or 0.0
+                    sigmay  = sheet.cell(row=Posicoes.SIGMAY.linha + linha  + shift_linha, column=Posicoes.SIGMAY.coluna + coluna + shift_coluna).value or 0.0
+                    mux2    = sheet.cell(row=Posicoes.MUX2.linha + linha  + shift_linha, column=Posicoes.MUX2.coluna + coluna + shift_coluna).value or 0.0
+                    sigmax2 = sheet.cell(row=Posicoes.SIGMAX2.linha + linha  + shift_linha, column=Posicoes.SIGMAX2.coluna + coluna + shift_coluna).value or 0.0
+                    coluna_salvar = coluna + shift_coluna + COLUNA_INICIO
+                    parametro = Parametros(muy=muy, mux1=mux1, sigmax1=sigmax1, sigmay=sigmay, mux2=mux2, sigmax2=sigmax2, linha_salvar=linha + shift_linha,coluna_salvar= coluna_salvar,nome_tabela=localENome,pagina_tabela=pagina)
 
-                    #print(parametro)
+                    # print(parametro)
 
                     self.tabelas.append(parametro)
             
@@ -123,7 +114,10 @@ class Tabela :
     def pegarParametros(self) -> list[Parametros] :
         return self.tabelas
     
-    def salvarColunaSaida(self, valor: float, parametro : Parametros, linha_lwb: int = None, linha_desvpad: int = None):
+    def salvarEmLote(self,valores : list[float], parametro : list[Parametros],lwb: bool = False, desvpad: bool = False,probabilidade : bool = False) :
+        return
+
+    def salvarColunaSaida(self, valor: float, parametro : Parametros, lwb: bool = False, desvpad: bool = False,probabilidade : bool = False):
         # Pede permissão
         mutex.acquire()
         try:
@@ -134,16 +128,19 @@ class Tabela :
                 # Selecionar a página específica
                 sheet = workbook[parametro.pagina_tabela]
                 
-                if (linha_desvpad != None):
-                    linha = linha_desvpad + LINHA_INICIO_RESPOSTA_DESVPAD
-                elif (linha_lwb != None):
-                    linha = linha_lwb + LINHA_INICIO_RESPOSTA_LWB
+                if (desvpad):
+                    linha = Posicoes.SAIDADESVPAD.linha
+                elif (lwb):
+                    linha = Posicoes.SAIDALBW.linha
+                elif (probabilidade):
+                    linha = Posicoes.SAIDAPROB.linha
                 else:
                     print("ERRO AO TENTAR SALVAR NA TABELA, NÃO FOI PASSADO O PARÂMETRO DA LINHA DE SALVAMENTO.")
                     exit(1) 
-                
+                coluna = parametro.coluna_salvar
                 # Substituir o valor na posição (linha, coluna + 4)
-                sheet.cell(row=parametro.linha_salvar + linha, column=parametro.coluna_salvar + 4).value = valor
+                print(f"Salvando ({valor}) na coluna ({coluna}) e linha ({linha + parametro.linha_salvar}) \n")
+                sheet.cell(row=parametro.linha_salvar + linha, column=coluna).value = valor
                 
                 # Salvar o arquivo
                 workbook.save(parametro.nome_tabela)
@@ -168,7 +165,9 @@ class Tabela :
         
 
 
-# tab = Tabela(pagina= TABELAS_PAGINA,localENome= TABELA_MATLAB)
+# tab = Tabela(pagina= PAGINA_NO_DOCUMENTO,localENome= LOCAL_NOME_TABELA,matriz_linha=0,matriz_coluna=1)
 # parametros = tab.pegarParametros()
+# index = 0
 # for i in parametros :
-#     tab.salvarColunaSaida(valor=-1,parametro=i,linha_lwb=0)
+#     tab.salvarColunaSaida(valor=index,parametro=i,lwb=True)
+#     index += 1
