@@ -9,7 +9,7 @@ if __name__ == "__main__":
     
     try:
         analyzer = InverseProdOfTwoVariables(muX, sigmaX, muY, sigmaY)
-        c_solution = analyzer.solve_inverse_cdf(n_samples=5000000)
+        c_solution = analyzer.solve_inverse_cdf()
 
         print(f"{c_solution}")
         #analyzer._print_verification_results()
