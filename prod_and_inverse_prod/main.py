@@ -46,40 +46,84 @@ def calculaDESV_PROB_thread(parametro: Parametros, index: int):
 
 if __name__ == "__main__":
     THREAD_MODE = True
-    tabela = Tabela(pagina='Main_variables', localENome='Stock_Data_in_days_cv_0,2_5V.xlsx', 
-                   matriz_linha=0, matriz_coluna=0)
-    parametros_originais = tabela.pegarParametros()
-
-    # Filtrar e mostrar parâmetros válidos
-    parametros_validos = [p for p in parametros_originais if p.mux1 > 0]
-    print(f"Encontrados {len(parametros_validos)} parâmetros válidos para processamento")
+    NUM_TABELAS = 9  # Número de tabelas a processar
     
-    # Mostrar estado inicial
-    for i, p in enumerate(parametros_validos):
-        print(f"Parametro {i}: lw inicial = {p.lw}")
+    todas_threads = []  # Lista para todas as threads de todas as tabelas
+    todas_tabelas = []  # Lista para guardar as tabelas
+    todos_parametros_validos = []  # Lista para todos os parâmetros válidos
+    
+    # Criar todas as tabelas e coletar todos os parâmetros
+    for j in range(NUM_TABELAS):
+        print(f"=== CARREGANDO TABELA {j} ===")
+        tabela = Tabela(pagina='Main_variables', 
+                       localENome='Stock_Data_in_days_cv_0,2_5V.xlsx', 
+                       matriz_linha=0, 
+                       matriz_coluna=j)
+        
+        parametros_originais = tabela.pegarParametros()
+        parametros_validos = [p for p in parametros_originais if p.mux1 > 0]
+        
+        print(f"Tabela {j}: {len(parametros_validos)} parâmetros válidos")
+        
+        # Guardar tabela e parâmetros para uso posterior
+        todas_tabelas.append(tabela)
+        todos_parametros_validos.extend([(j, i, param) for i, param in enumerate(parametros_validos)])
+
+    print(f"\n=== TOTAL: {len(todos_parametros_validos)} parâmetros válidos em {NUM_TABELAS} tabelas ===")
 
     # Processamento (threads ou sequencial)
     if THREAD_MODE:
-        threads = []
-        for i, param in enumerate(parametros_validos):
-            threadlw = threading.Thread(target=calculaLB_thread, args=(param, i))
-            threadlw.start()
-            threads.append(threadlw)
-            threaddesv = threading.Thread(target=calculaDESV_PROB_thread, args=(param, i))
-            threaddesv.start()
-            threads.append(threaddesv)
-        
-        # Aguardar conclusão
-        for i, thread in enumerate(threads):
+        # Disparar TODAS as threads de UMA VEZ
+        for tabela_idx, param_idx, param in todos_parametros_validos:
+            # Thread para LB
+            thread_lb = threading.Thread(
+                target=calculaLB_thread, 
+                args=(param, tabela_idx * 1000 + param_idx),  # ID único
+                name=f"T{tabela_idx}-P{param_idx}-LB"
+            )
+            thread_lb.start()
+            todas_threads.append(thread_lb)
+            
+            # Thread para DESV/PROB
+            thread_desv = threading.Thread(
+                target=calculaDESV_PROB_thread, 
+                args=(param, tabela_idx * 1000 + param_idx),
+                name=f"T{tabela_idx}-P{param_idx}-DESV"
+            )
+            thread_desv.start()
+            todas_threads.append(thread_desv)
+
+        print(f"Lançadas {len(todas_threads)} threads simultaneamente!")
+        print("Aguardando todas as threads terminarem...")
+
+        # Aguardar conclusão de TODAS as threads
+        for i, thread in enumerate(todas_threads):
             thread.join()
+            if (i + 1) % 10 == 0:  # Log a cada 10 threads
+                print(f"Concluídas {i + 1}/{len(todas_threads)} threads")
+                
     else:
-        for i, param in enumerate(parametros_validos):
-            calculaLB_thread(param, i)
+        # Execução sequencial
+        for tabela_idx, param_idx, param in todos_parametros_validos:
+            calculaLB_thread(param, tabela_idx * 1000 + param_idx)
+            calculaDESV_PROB_thread(param, tabela_idx * 1000 + param_idx)
 
-    if parametros_validos:
-        tabela.salvarEmLote(parametros=parametros_validos)
-        print(f"\n✓ {len(parametros_validos)} resultados salvos com sucesso!")
-    else:
-        print("Nenhum resultado para salvar")
+    # Salvar resultados por tabela
+    print("\n=== SALVANDO RESULTADOS ===")
+    
+    # Agrupar parâmetros por tabela
+    parametros_por_tabela = [[] for _ in range(NUM_TABELAS)]
+    
+    for tabela_idx, param_idx, param in todos_parametros_validos:
+        parametros_por_tabela[tabela_idx].append(param)
+    
+    # Salvar cada tabela
+    for j in range(NUM_TABELAS):
+        parametros_tabela = parametros_por_tabela[j]
+        if parametros_tabela:
+            todas_tabelas[j].salvarEmLote(parametros=parametros_tabela)
+            print(f"✓ Tabela {j}: {len(parametros_tabela)} resultados salvos")
+        else:
+            print(f"✗ Tabela {j}: Nenhum resultado para salvar")
 
-    print("Processo finalizado!")
+    print(f"\n🎉 Processo finalizado! {len(todos_parametros_validos)} parâmetros processados em {NUM_TABELAS} tabelas")
