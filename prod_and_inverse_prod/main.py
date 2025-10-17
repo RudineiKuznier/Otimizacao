@@ -10,41 +10,7 @@ def calculaLB_thread(parametro: Parametros, index: int):
         print(f"Thread {index} iniciada - mux1: {parametro.mux1}, muy: {parametro.muy}")
         
         solver = InverseProdOfTwoVariables(parametro.mux1, parametro.sigmax1, 
-                                         parametro.muy, parametro.sigmay, 0.98)
-        c_solution = solver.solve_inverse_cdf()
-        
-        # Modifica diretamente o objeto Parametros
-        with mux_parametros:
-            parametro.lw = c_solution
-            print(f"✓ Thread {index} concluída: lw = {c_solution}")
-            
-    except Exception as e:
-        print(f"✗ Erro thread {index}: {e}")
-        with mux_parametros:
-            parametro.lw = 0.0
-def calculaDESV_thread(parametro: Parametros, index: int):
-    try:
-        print(f"Thread {index} iniciada - mux1: {parametro.mux1}, muy: {parametro.muy}")
-        
-        solver = InverseProdOfTwoVariables(parametro.mux1, parametro.sigmax1, 
-                                         parametro.muy, parametro.sigmay, 0.98)
-        c_solution = solver.solve_inverse_cdf()
-        
-        # Modifica diretamente o objeto Parametros
-        with mux_parametros:
-            parametro.lw = c_solution
-            print(f"✓ Thread {index} concluída: lw = {c_solution}")
-            
-    except Exception as e:
-        print(f"✗ Erro thread {index}: {e}")
-        with mux_parametros:
-            parametro.lw = 0.0
-def calculaPROB_thread(parametro: Parametros, index: int):
-    try:
-        print(f"Thread {index} iniciada - mux1: {parametro.mux1}, muy: {parametro.muy}")
-        
-        solver = InverseProdOfTwoVariables(parametro.mux1, parametro.sigmax1, 
-                                         parametro.muy, parametro.sigmay, 0.98)
+                                         parametro.muy, parametro.sigmay)
         c_solution = solver.solve_inverse_cdf()
         
         # Modifica diretamente o objeto Parametros
@@ -57,6 +23,23 @@ def calculaPROB_thread(parametro: Parametros, index: int):
         with mux_parametros:
             parametro.lw = 0.0
 
+
+def calculaDESV_PROB_thread(parametro: Parametros, index: int):
+    try:
+        print(f"Thread {index} iniciada - mux1: {parametro.mux1}, muy: {parametro.muy}")
+        
+        analyzer = ProdOfNormalRVs(muX=parametro.mux2,sigmaX=parametro.sigmax2,muY=parametro.muy,sigmaY=parametro.sigmay)
+        std_dev = analyzer.solve_cdf()
+        probabilidade = analyzer.compute_product_cdf_1d(parametro.reorder)
+        # Modifica diretamente o objeto Parametros
+        with mux_parametros:
+            parametro.desv = std_dev
+            parametro.prob = probabilidade
+            
+    except Exception as e:
+        print(f"✗ Erro thread {index}: {e}")
+        with mux_parametros:
+            parametro.lw = 0.0
 
 
 
@@ -82,12 +65,9 @@ if __name__ == "__main__":
             threadlw = threading.Thread(target=calculaLB_thread, args=(param, i))
             threadlw.start()
             threads.append(threadlw)
-            threaddesv = threading.Thread(target=calculaDESV_thread, args=(param, i))
+            threaddesv = threading.Thread(target=calculaDESV_PROB_thread, args=(param, i))
             threaddesv.start()
             threads.append(threaddesv)
-            threadprob = threading.Thread(target=calculaPROB_thread, args=(param, i))
-            threadprob.start()
-            threads.append(threadprob)
         
         # Aguardar conclusão
         for i, thread in enumerate(threads):

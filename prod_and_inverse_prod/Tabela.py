@@ -29,12 +29,14 @@ SIGMAX1_LINHA                   = 63
 SIGMAY_LINHA                    = 68
 MUX2_LINHA                      = 73
 SIGMAX2_LINHA                   = 78
+REODER_C_LINHA                  = 13
 SAIDADESVPAD_LINHA              = 88
 SAIDALBW_LINHA                  = 83
 SAIDAPROB_LINHA                 = 3
 
+
 class Parametros:
-    def __init__ (self,muy : float,mux1 : float,sigmax1 : float,sigmay : float, mux2 : float, sigmax2 : float, linha_salvar : int, coluna_salvar : int,nome_tabela : str ,pagina_tabela : str):
+    def __init__ (self,muy : float,mux1 : float,sigmax1 : float,sigmay : float, mux2 : float, sigmax2 : float, linha_salvar : int, coluna_salvar : int,nome_tabela : str ,pagina_tabela : str,reorder : float):
         self.muy = muy
         self.mux1 = mux1
         self.sigmax1 = sigmax1
@@ -45,6 +47,7 @@ class Parametros:
         self.coluna_salvar = coluna_salvar
         self.nome_tabela = nome_tabela
         self.pagina_tabela = pagina_tabela
+        self.reorder = reorder
         self.lw = 0
         self.desv = 0
         self.prob = 0
@@ -61,6 +64,7 @@ class Posicoes(Enum) :
     SIGMAY          = (LINHA_INICIO + SIGMAY_LINHA,COLUNA_INICIO) # iguais
     MUX2            = (LINHA_INICIO + MUX2_LINHA,COLUNA_INICIO) 
     SIGMAX2         = (LINHA_INICIO + SIGMAX2_LINHA,COLUNA_INICIO)
+    REODER_C        = (LINHA_INICIO + REODER_C_LINHA,COLUNA_INICIO)
     SAIDADESVPAD    = (LINHA_INICIO + SAIDADESVPAD_LINHA,COLUNA_INICIO)
     SAIDALBW        = (LINHA_INICIO + SAIDALBW_LINHA,COLUNA_INICIO)
     SAIDAPROB       = (LINHA_INICIO + SAIDAPROB_LINHA,COLUNA_INICIO)
@@ -94,14 +98,15 @@ class Tabela :
             shift_linha  = matriz_linha * NUM_LINHAS_INICIO_AO_FIM
             for linha in range(NUMLINHAS):
                 for coluna in range(NUMCOLUNAS):
-                    muy     = sheet.cell(row=Posicoes.MUY.linha + linha  + shift_linha, column=Posicoes.MUY.coluna + coluna + shift_coluna).value or 0.0
-                    mux1    = sheet.cell(row=Posicoes.MUX1.linha + linha  + shift_linha, column=Posicoes.MUX1.coluna + coluna + shift_coluna).value or 0.0
-                    sigmax1 = sheet.cell(row=Posicoes.SIGMAX1.linha + linha  + shift_linha, column=Posicoes.SIGMAX1.coluna + coluna + shift_coluna).value or 0.0
-                    sigmay  = sheet.cell(row=Posicoes.SIGMAY.linha + linha  + shift_linha, column=Posicoes.SIGMAY.coluna + coluna + shift_coluna).value or 0.0
-                    mux2    = sheet.cell(row=Posicoes.MUX2.linha + linha  + shift_linha, column=Posicoes.MUX2.coluna + coluna + shift_coluna).value or 0.0
-                    sigmax2 = sheet.cell(row=Posicoes.SIGMAX2.linha + linha  + shift_linha, column=Posicoes.SIGMAX2.coluna + coluna + shift_coluna).value or 0.0
+                    muy         = sheet.cell(row=Posicoes.MUY.linha + linha  + shift_linha, column=Posicoes.MUY.coluna + coluna + shift_coluna).value or 0.0
+                    mux1        = sheet.cell(row=Posicoes.MUX1.linha + linha  + shift_linha, column=Posicoes.MUX1.coluna + coluna + shift_coluna).value or 0.0
+                    sigmax1     = sheet.cell(row=Posicoes.SIGMAX1.linha + linha  + shift_linha, column=Posicoes.SIGMAX1.coluna + coluna + shift_coluna).value or 0.0
+                    sigmay      = sheet.cell(row=Posicoes.SIGMAY.linha + linha  + shift_linha, column=Posicoes.SIGMAY.coluna + coluna + shift_coluna).value or 0.0
+                    mux2        = sheet.cell(row=Posicoes.MUX2.linha + linha  + shift_linha, column=Posicoes.MUX2.coluna + coluna + shift_coluna).value or 0.0
+                    sigmax2     = sheet.cell(row=Posicoes.SIGMAX2.linha + linha  + shift_linha, column=Posicoes.SIGMAX2.coluna + coluna + shift_coluna).value or 0.0
+                    reorder_c   = sheet.cell(row=Posicoes.REODER_C.linha + linha  + shift_linha, column=Posicoes.REODER_C.coluna + coluna + shift_coluna).value or 0.0
                     coluna_salvar = coluna + shift_coluna + COLUNA_INICIO
-                    parametro = Parametros(muy=muy, mux1=mux1, sigmax1=sigmax1, sigmay=sigmay, mux2=mux2, sigmax2=sigmax2, linha_salvar=linha + shift_linha,coluna_salvar= coluna_salvar,nome_tabela=localENome,pagina_tabela=pagina)
+                    parametro = Parametros(muy=muy, mux1=mux1, sigmax1=sigmax1, sigmay=sigmay, mux2=mux2, sigmax2=sigmax2, linha_salvar=linha + shift_linha,coluna_salvar= coluna_salvar,nome_tabela=localENome,pagina_tabela=pagina,reorder=reorder_c)
 
                     # print(parametro)
 
