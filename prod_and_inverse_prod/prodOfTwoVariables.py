@@ -53,18 +53,31 @@ class ProdOfNormalRVs:
             
         return prob_Y * norm.pdf(x, loc=muX, scale=sigmaX)
 
-    def compute_product_cdf_1d(self, c_val: float) -> float:
-        part1, _ = quad(ProdOfNormalRVs._integrand, 
+    def compute_product_cdf_1d(self, c_val: float, muX : float = None , sigmaX : float = None, muY : float = None, sigmaY : float = None) -> float:
+        if (muX != None) and (sigmaX != None) and (muY != None) and (sigmaY != None) :
+            part1, _ = quad(ProdOfNormalRVs._integrand, 
                         -np.inf, 0, 
-                        args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, False), 
+                        args=(c_val, muX, sigmaX, muY, sigmaY, False), 
                         limit=self.quad_limit, 
                         epsrel=self.quad_err_tol)
 
-        part2, _ = quad(ProdOfNormalRVs._integrand, 
-                        0, np.inf, 
-                        args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, True), 
-                        limit=self.quad_limit, 
-                        epsrel=self.quad_err_tol)
+            part2, _ = quad(ProdOfNormalRVs._integrand, 
+                            0, np.inf, 
+                            args=(c_val, muX, sigmaX, muY, sigmaY, True), 
+                            limit=self.quad_limit, 
+                            epsrel=self.quad_err_tol)
+        else :
+            part1, _ = quad(ProdOfNormalRVs._integrand, 
+                            -np.inf, 0, 
+                            args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, False), 
+                            limit=self.quad_limit, 
+                            epsrel=self.quad_err_tol)
+
+            part2, _ = quad(ProdOfNormalRVs._integrand, 
+                            0, np.inf, 
+                            args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, True), 
+                            limit=self.quad_limit, 
+                            epsrel=self.quad_err_tol)
         
         return round(part1 + part2, 6)
 
@@ -203,3 +216,7 @@ class ProdOfNormalRVs:
         plt.show()
 
 
+# test = ProdOfNormalRVs(muX=-73.1,sigmaX=13.9696,muY=9.45,sigmaY=0.3449)
+# prob0 = test.compute_product_cdf_1d(c_val=-690.795)
+# prob1 = test.compute_product_cdf_1d(muX=-73.1,sigmaX=13.9696,muY=9.45,sigmaY=0.3449,c_val=-690.795)
+# print(f"Resultado probabilidade 0 : {prob0} \nResultado probabilidade 1 : {prob1}")
