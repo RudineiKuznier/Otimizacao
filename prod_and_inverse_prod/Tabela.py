@@ -1,47 +1,15 @@
-
-from enum import Enum
-import xlwings as xw
 import threading
 import openpyxl
+from Particoes_na_tabela import Particao, PosicoesParametros, SUPLIERS_POSICOES, FACTORS_POSICOES
 
-# Cria o mutex
 mutex = threading.Lock()
-
-# inicio da primeira linha e coluna
-LINHA_INICIO                    = 0
-COLUNA_INICIO                   = 26
-NUM_LINHAS_INICIO_AO_FIM        = 136
-NUM_COLUNAS_INICIO_AO_FIM       = 22
-# diz a quantidade de colunas que separa uma tabela de outra
-NUM_COLUNAS_ENTRE_MATRIZES      = 0
-# DEFINE DE QUANTIDADES DE LINHAS E COLUNAS NUMA TABELA
-NUMLINHAS                       = 3
-NUMCOLUNAS                      = 15
-# DEFINE DO NÚMERO DE TABELAS EM UMA PÁGINA
-NUM_MATRIZES_NA_PAGINA          = 9
-# DEFINE DAS LOCALIZAÇÕES DOS ARQUIVOS
-LOCAL_NOME_TABELA               = "Stock_Data_in_days_cv_0,2_5V.xlsx"
-PAGINA_NO_DOCUMENTO             = "Main_variables"
-# DEFINE DAS POSIÇÕES DOS VALORES DENTRO DA MATRIZ
-SIGMAXART_LINHA                 = 138
-SIGMAYART_LINHA                 = 143
-CONSTART_LINHA                  = 158
-MUXART_LINHA                    = 43
-MUY_LINHA                       = 48
-MUX1_LINHA                      = 58
-SIGMAX1_LINHA                   = 63
-SIGMAY_LINHA                    = 68
-MUX2_LINHA                      = 73
-SIGMAX2_LINHA                   = 78
-REODER_C_LINHA                  = 13
-SAIDADESVPAD_LINHA              = 88
-SAIDALBW_LINHA                  = 83
-SAIDAPROB_LINHA                 = 3
-SAIDAPROBART_LINHA              = 8
 
 
 class Parametros:
-    def __init__ (self,muy : float,mux1 : float,sigmax1 : float,sigmay : float, mux2 : float, sigmax2 : float, linha_salvar : int, coluna_salvar : int,nome_tabela : str ,pagina_tabela : str,reorder : float, sigxart : float, sigyart : float, constart : float, muxart : float):
+    def __init__(self, muy, mux1, sigmax1, sigmay, mux2, sigmax2,
+                 linha_salvar, coluna_salvar, nome_tabela, pagina_tabela,
+                 reorder, sigxart, sigyart, constart, muxart,
+                 posicoes_parametros: PosicoesParametros):
         self.muy = muy
         self.mux1 = mux1
         self.sigmax1 = sigmax1
@@ -61,147 +29,116 @@ class Parametros:
         self.desv = 0
         self.prob = 0
         self.probart = 0
+        self.posicoes_parametros = posicoes_parametros  # 🔹 chave para salvar corretamente
 
     def __repr__(self):
-        return (f"Parâmetros da tabela : \n muy = {self.muy} \n mux1 = {self.mux1} \n sigmax1 = {self.sigmax1} \n sigmay = {self.sigmay} \n mux2 = {self.mux2} \n sigmax2 = {self.sigmax2} \n linha = {self.linha_salvar} \n coluna = {self.coluna_salvar} \n ")
+        return (f"Parâmetros: muy={self.muy}, mux1={self.mux1}, sigmax1={self.sigmax1}, "
+                f"sigmay={self.sigmay}, mux2={self.mux2}, sigmax2={self.sigmax2}, "
+                f"linha salvar ={self.linha_salvar}, coluna salvar={self.coluna_salvar}")
 
 
-class Posicoes(Enum) :
-    SIGMAXART           = (LINHA_INICIO + SIGMAXART_LINHA,COLUNA_INICIO) 
-    SIGMAYART           = (LINHA_INICIO + SIGMAYART_LINHA,COLUNA_INICIO)
-    CONSTART            = (LINHA_INICIO + CONSTART_LINHA,COLUNA_INICIO)
-    MUXART              = (LINHA_INICIO + MUXART_LINHA,COLUNA_INICIO)
-    MUY                 = (LINHA_INICIO + MUY_LINHA,COLUNA_INICIO) # iguais
-    MUX1                = (LINHA_INICIO + MUX1_LINHA,COLUNA_INICIO) # diferentes
-    SIGMAX1             = (LINHA_INICIO + SIGMAX1_LINHA,COLUNA_INICIO) # diferentes
-    SIGMAY              = (LINHA_INICIO + SIGMAY_LINHA,COLUNA_INICIO) # iguais
-    MUX2                = (LINHA_INICIO + MUX2_LINHA,COLUNA_INICIO) 
-    SIGMAX2             = (LINHA_INICIO + SIGMAX2_LINHA,COLUNA_INICIO)
-    REODER_C            = (LINHA_INICIO + REODER_C_LINHA,COLUNA_INICIO)
-    SAIDADESVPAD        = (LINHA_INICIO + SAIDADESVPAD_LINHA,COLUNA_INICIO)
-    SAIDALBW            = (LINHA_INICIO + SAIDALBW_LINHA,COLUNA_INICIO)
-    SAIDAPROB           = (LINHA_INICIO + SAIDAPROB_LINHA,COLUNA_INICIO)
-    SAIDAPROBART        = (LINHA_INICIO + SAIDAPROBART_LINHA,COLUNA_INICIO)
-
-    @property
-    def linha(self):
-        return self.value[0]
-    
-    @property
-    def coluna(self):
-        return self.value[1]
-
-    
-
-class Tabela :
-    def __init__(self,pagina : str, localENome: str,matriz_linha : int, matriz_coluna : int):
+class Tabela:
+    def __init__(self):
         self.tabelas = []
+
+    def carregarMatriz(self, particao: Particao, localENome: str, pagina: str,tabela : int):
+        """Carrega uma matriz com base na definição de partição passada."""
         mutex.acquire()
         try:
             workbook = openpyxl.load_workbook(localENome, data_only=True)
-            print (f" --------- LENDO DE ---------\n Tabela. : {localENome} \n Página : {pagina} \n")
-            # Verifica se a página existe
-            if pagina in workbook.sheetnames:
-                sheet = workbook[pagina]
-            else:
-                # Lista as páginas disponíveis se a desejada não existir
-                print(f"Página {pagina} não encontrada.")
-                workbook.close()
-                exit(1)
-            shift_coluna = matriz_coluna * NUM_COLUNAS_INICIO_AO_FIM
-            shift_linha  = matriz_linha * NUM_LINHAS_INICIO_AO_FIM
-            for linha in range(NUMLINHAS):
-                for coluna in range(NUMCOLUNAS):
-                    sigxart     = sheet.cell(row=Posicoes.SIGMAXART.linha + linha  + shift_linha, column=Posicoes.SIGMAXART.coluna + coluna + shift_coluna).value or 0.0
-                    sigyart     = sheet.cell(row=Posicoes.SIGMAYART.linha + linha  + shift_linha, column=Posicoes.SIGMAYART.coluna + coluna + shift_coluna).value or 0.0
-                    constart    = sheet.cell(row=Posicoes.CONSTART.linha + linha  + shift_linha, column=Posicoes.CONSTART.coluna + coluna + shift_coluna).value or 0.0
-                    muxart      = sheet.cell(row=Posicoes.MUXART.linha + linha  + shift_linha, column=Posicoes.MUXART.coluna + coluna + shift_coluna).value or 0.0
-                    muy         = sheet.cell(row=Posicoes.MUY.linha + linha  + shift_linha, column=Posicoes.MUY.coluna + coluna + shift_coluna).value or 0.0
-                    mux1        = sheet.cell(row=Posicoes.MUX1.linha + linha  + shift_linha, column=Posicoes.MUX1.coluna + coluna + shift_coluna).value or 0.0
-                    sigmax1     = sheet.cell(row=Posicoes.SIGMAX1.linha + linha  + shift_linha, column=Posicoes.SIGMAX1.coluna + coluna + shift_coluna).value or 0.0
-                    sigmay      = sheet.cell(row=Posicoes.SIGMAY.linha + linha  + shift_linha, column=Posicoes.SIGMAY.coluna + coluna + shift_coluna).value or 0.0
-                    mux2        = sheet.cell(row=Posicoes.MUX2.linha + linha  + shift_linha, column=Posicoes.MUX2.coluna + coluna + shift_coluna).value or 0.0
-                    sigmax2     = sheet.cell(row=Posicoes.SIGMAX2.linha + linha  + shift_linha, column=Posicoes.SIGMAX2.coluna + coluna + shift_coluna).value or 0.0
-                    reorder_c   = sheet.cell(row=Posicoes.REODER_C.linha + linha  + shift_linha, column=Posicoes.REODER_C.coluna + coluna + shift_coluna).value or 0.0
-                    coluna_salvar = coluna + shift_coluna + COLUNA_INICIO
-                    parametro = Parametros(muy=muy, mux1=mux1, sigmax1=sigmax1, sigmay=sigmay, mux2=mux2, sigmax2=sigmax2, linha_salvar=linha + shift_linha,coluna_salvar= coluna_salvar,nome_tabela=localENome,pagina_tabela=pagina,reorder=reorder_c, sigxart=sigxart,sigyart=sigyart,constart=constart,muxart=muxart)
+            if pagina not in workbook.sheetnames:
+                raise ValueError(f"Página '{pagina}' não encontrada no arquivo.")
+            sheet = workbook[pagina]
 
-                    # print(parametro)
+            print(f" --------- LENDO DE ---------")
+            print(f"Tabela: {localENome}")
+            print(f"Página: {pagina}\n")
 
+            pos = particao.POSICOES_PARAMETROS
+            shift_coluna = particao.COLUNA_INICIO + (tabela * (particao.PASSO_COLUNA + particao.QTD_COLUNAS))
+            shift_linha = particao.LINHA_INICIO
+
+            for linha in range(particao.QTD_LINHAS):
+                for coluna in range(particao.QTD_COLUNAS):
+                    sigxart = sheet.cell(row=pos.SIGMAXART + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    sigyart = sheet.cell(row=pos.SIGMAYART + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    constart = sheet.cell(row=pos.CONSTART + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    muxart = sheet.cell(row=pos.MUXART + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    muy = sheet.cell(row=pos.MUY + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    mux1 = sheet.cell(row=pos.MUX1 + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    sigmax1 = sheet.cell(row=pos.SIGMAX1 + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    sigmay = sheet.cell(row=pos.SIGMAY + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    mux2 = sheet.cell(row=pos.MUX2 + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    sigmax2 = sheet.cell(row=pos.SIGMAX2 + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    reorder_c = sheet.cell(row=pos.REODER_C + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+
+                    parametro = Parametros(
+                        muy=muy, mux1=mux1, sigmax1=sigmax1, sigmay=sigmay,
+                        mux2=mux2, sigmax2=sigmax2,
+                        linha_salvar=linha,
+                        coluna_salvar=coluna + shift_coluna,
+                        nome_tabela=localENome, pagina_tabela=pagina,
+                        reorder=reorder_c, sigxart=sigxart, sigyart=sigyart,
+                        constart=constart, muxart=muxart,
+                        posicoes_parametros=pos  # 🔹 passa aqui
+                    )
                     self.tabelas.append(parametro)
-            
+
             workbook.close()
         except Exception as e:
             print(f"Erro ao carregar arquivo: {e}")
         finally:
             mutex.release()
-        return
-    
-    def pegarParametros(self) -> list[Parametros] :
+
+    def pegarParametros(self) -> list[Parametros]:
         return self.tabelas
-    
-    def salvarEmLote(self, parametros : list[Parametros]) :
+
+    def salvarEmLote(self, parametros: list[Parametros]):
+        """Salva as colunas de saída (desvio, lw, prob, probart) com base na partição salva em cada parâmetro."""
+        if not parametros:
+            print("Nenhum parâmetro para salvar.")
+            return
+
+        pos = getattr(parametros[0], "posicoes_parametros", None)
+        if pos is None:
+            print("Erro: as posições de parâmetros não foram definidas para esta partição.")
+            return
+
         mutex.acquire()
         try:
-            try:
-                # Carregar o arquivo
-                workbook = openpyxl.load_workbook(parametros[0].nome_tabela)
-                # Selecionar a página específica
-                sheet = workbook[parametros[0].pagina_tabela]
-                for index in range(len(parametros)) :
-                    coluna = parametros[index].coluna_salvar
-                    linha = parametros[index].linha_salvar 
-                    # Substituir o valor na posição (linha, coluna + 4)
-                    # print(f"Salvando ({valor}) na coluna ({coluna}) e linha ({linha + parametro.linha_salvar}) \n")
-                    sheet.cell(row=linha + Posicoes.SAIDADESVPAD.linha, column=coluna).value = parametros[index].desv
-                    sheet.cell(row=linha + Posicoes.SAIDALBW.linha, column=coluna).value = parametros[index].lw
-                    sheet.cell(row=linha + Posicoes.SAIDAPROB.linha, column=coluna).value = parametros[index].prob
-                    sheet.cell(row=linha + Posicoes.SAIDAPROBART.linha, column=coluna).value = parametros[index].probart
-                    # Salvar o arquivo
-                workbook.save(parametros[0].nome_tabela)
+            workbook = openpyxl.load_workbook(parametros[0].nome_tabela)
+            if parametros[0].pagina_tabela not in workbook.sheetnames:
+                print(f"Erro: Página '{parametros[0].pagina_tabela}' não encontrada. Páginas: {workbook.sheetnames}")
                 workbook.close()
-            except FileNotFoundError:
-                print(f"Erro: Arquivo '{parametros[0].nome_tabela}' não encontrado")
-            except KeyError:
-                print(f"Erro: Página '{parametros[0].pagina_tabela}' não encontrada. Páginas disponíveis: {workbook.sheetnames}")
-            except PermissionError:
-                print(f"Erro: Sem permissão para escrever no arquivo '{parametros[0].nome_tabela}'")
-            except Exception as e:
-                print(f"Erro ao salvar arquivo: {e}")
-                
-            
+                return
 
+            sheet = workbook[parametros[0].pagina_tabela]
+            for p in parametros:
+                pos = p.posicoes_parametros
+                sheet.cell(row=p.linha_salvar + pos.SAIDADESVPAD, column=p.coluna_salvar).value = p.desv
+                sheet.cell(row=p.linha_salvar + pos.SAIDALBW, column=p.coluna_salvar).value = p.lw
+                sheet.cell(row=p.linha_salvar + pos.SAIDAPROB, column=p.coluna_salvar).value = p.prob
+                sheet.cell(row=p.linha_salvar + pos.SAIDAPROBART, column=p.coluna_salvar).value = p.probart
+
+            workbook.save(parametros[0].nome_tabela)
+            workbook.close()
+        except Exception as e:
+            print(f"Erro ao salvar arquivo: {e}")
         finally:
-            # Devolve o mutex
             mutex.release()
-        return
-
-    def salvarColunaSaida(self, valor: float, parametro : Parametros, lwb: bool = False, desvpad: bool = False,probabilidade : bool = False):
-        # Pede permissão
-        
-                
-                
-                
-                
-                # print(f"Valor {valor} salvo em {parametro.pagina_tabela}({ parametro.linha_salvar + linha}, {parametro.coluna_salvar + 4})")
-                
-            
-        
-        return
-        
 
 
-# tab = Tabela(pagina= PAGINA_NO_DOCUMENTO,localENome= LOCAL_NOME_TABELA,matriz_linha=0,matriz_coluna=1)
-# parametros = tab.pegarParametros()
-# valoreslb = []
-# valoresdes = []
-# valoresprob = []
-# for p in range(len(parametros)):
-#     valoreslb.append(-40028922)
-#     valoresdes.append(-0.000001)
-#     valoresprob.append(-123456789)
+# ----------------- TESTE -----------------
+if __name__ == "__main__":
+    tabela = Tabela()
+    tabela.carregarMatriz(FACTORS_POSICOES, "Stock_Data_in_days_cv_02_5V.xlsx", "Main_variables",tabela=0)
 
+    parametros = tabela.pegarParametros()
+    for p in parametros:
+        p.lw = -1
+        p.desv = -2
+        p.prob = -3
+        p.probart = -4
+        print(p)
 
-# tab.salvarEmLote(valores=valoreslb,parametros=parametros,lwb=True)
-# tab.salvarEmLote(valores=valoresdes,parametros=parametros,desvpad=True)
-# tab.salvarEmLote(valores=valoresprob,parametros=parametros,probabilidade=True)
+    tabela.salvarEmLote(parametros)
