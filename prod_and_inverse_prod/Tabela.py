@@ -1,6 +1,6 @@
 import threading
 import openpyxl
-from Particoes_na_tabela import Particao, PosicoesParametros, SUPLIERS_POSICOES, FACTORS_POSICOES
+from Particoes_na_tabela import Particao, PosicoesParametros, SUPLIERS_POSICOES, FACTORS_POSICOES, DISTRIBUTORS_POSICOES, RETAILERS_POSICOES
 
 mutex = threading.Lock()
 
@@ -32,7 +32,8 @@ class Parametros:
         self.posicoes_parametros = posicoes_parametros  # 🔹 chave para salvar corretamente
 
     def __repr__(self):
-        return (f"Parâmetros: muy={self.muy}, mux1={self.mux1}, sigmax1={self.sigmax1}, "
+        return (f"Tabela : {self.nome_tabela} , Página : {self.pagina_tabela}"
+                f"Parâmetros: muy={self.muy}, mux1={self.mux1}, sigmax1={self.sigmax1}, "
                 f"sigmay={self.sigmay}, mux2={self.mux2}, sigmax2={self.sigmax2}, "
                 f"linha salvar ={self.linha_salvar}, coluna salvar={self.coluna_salvar}")
 
@@ -40,19 +41,29 @@ class Parametros:
 class Tabela:
     def __init__(self):
         self.tabelas = []
+        self.arquivo = None
+        self.localENome = ""
 
-    def carregarMatriz(self, particao: Particao, localENome: str, pagina: str,tabela : int):
+    def carregarArquivoParaRam(self, localENome: str):
+        self.arquivo = openpyxl.load_workbook(localENome, data_only=True)
+        self.localENome = localENome
+
+    def removerArquivoDaRam(self):
+        self.arquivo.close()
+
+    def carregarMatriz(self, particao: Particao, pagina: str, tabela: int) -> list[Parametros]:
         """Carrega uma matriz com base na definição de partição passada."""
-        mutex.acquire()
-        try:
-            workbook = openpyxl.load_workbook(localENome, data_only=True)
-            if pagina not in workbook.sheetnames:
-                raise ValueError(f"Página '{pagina}' não encontrada no arquivo.")
-            sheet = workbook[pagina]
+        lista = []
+        if self.arquivo is None:
+            print("Erro ao tentar carregar matriz, arquivo não carregado previamente.")
+            return []
 
-            print(f" --------- LENDO DE ---------")
-            print(f"Tabela: {localENome}")
-            print(f"Página: {pagina}\n")
+        try:
+            if pagina not in self.arquivo.sheetnames:
+                raise ValueError(f"Página '{pagina}' não encontrada no arquivo.")
+            sheet = self.arquivo[pagina]
+
+            print(f" --------- LENDO MATRIZ {tabela} ---------")
 
             pos = particao.POSICOES_PARAMETROS
             shift_coluna = particao.COLUNA_INICIO + (tabela * (particao.PASSO_COLUNA + particao.QTD_COLUNAS))
@@ -77,68 +88,72 @@ class Tabela:
                         mux2=mux2, sigmax2=sigmax2,
                         linha_salvar=linha,
                         coluna_salvar=coluna + shift_coluna,
-                        nome_tabela=localENome, pagina_tabela=pagina,
+                        nome_tabela=self.localENome, pagina_tabela=pagina,
                         reorder=reorder_c, sigxart=sigxart, sigyart=sigyart,
                         constart=constart, muxart=muxart,
-                        posicoes_parametros=pos  # 🔹 passa aqui
+                        posicoes_parametros=pos
                     )
-                    self.tabelas.append(parametro)
+                    lista.append(parametro)
 
-            workbook.close()
+            return lista
+
         except Exception as e:
             print(f"Erro ao carregar arquivo: {e}")
-        finally:
-            mutex.release()
+            return []
 
-    def pegarParametros(self) -> list[Parametros]:
-        return self.tabelas
+            
+        except Exception as e:
+            print(f"Erro ao carregar arquivo: {e}")
 
     def salvarEmLote(self, parametros: list[Parametros]):
         """Salva as colunas de saída (desvio, lw, prob, probart) com base na partição salva em cada parâmetro."""
-        if not parametros:
-            print("Nenhum parâmetro para salvar.")
-            return
-
-        pos = getattr(parametros[0], "posicoes_parametros", None)
-        if pos is None:
-            print("Erro: as posições de parâmetros não foram definidas para esta partição.")
-            return
-
-        mutex.acquire()
-        try:
-            workbook = openpyxl.load_workbook(parametros[0].nome_tabela)
-            if parametros[0].pagina_tabela not in workbook.sheetnames:
-                print(f"Erro: Página '{parametros[0].pagina_tabela}' não encontrada. Páginas: {workbook.sheetnames}")
-                workbook.close()
+        if (self.arquivo != None):
+        
+            if not parametros:
+                print("Nenhum parâmetro para salvar.")
                 return
 
-            sheet = workbook[parametros[0].pagina_tabela]
-            for p in parametros:
-                pos = p.posicoes_parametros
-                sheet.cell(row=p.linha_salvar + pos.SAIDADESVPAD, column=p.coluna_salvar).value = p.desv
-                sheet.cell(row=p.linha_salvar + pos.SAIDALBW, column=p.coluna_salvar).value = p.lw
-                sheet.cell(row=p.linha_salvar + pos.SAIDAPROB, column=p.coluna_salvar).value = p.prob
-                sheet.cell(row=p.linha_salvar + pos.SAIDAPROBART, column=p.coluna_salvar).value = p.probart
+            pos = getattr(parametros[0], "posicoes_parametros", None)
+            if pos is None:
+                print("Erro: as posições de parâmetros não foram definidas para esta partição.")
+                return
 
-            workbook.save(parametros[0].nome_tabela)
-            workbook.close()
-        except Exception as e:
-            print(f"Erro ao salvar arquivo: {e}")
-        finally:
-            mutex.release()
+            try:
+                if parametros[0].pagina_tabela not in self.arquivo.sheetnames:
+                    print(f"Erro: Página '{parametros[0].pagina_tabela}' não encontrada. Páginas: {self.arquivo.sheetnames}")
+                    self.arquivo.close()
+                    return
 
+                for p in parametros:
+                    pos = p.posicoes_parametros
+                    self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDADESVPAD, column=p.coluna_salvar).value = p.desv
+                    self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDALBW, column=p.coluna_salvar).value = p.lw
+                    self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDAPROB, column=p.coluna_salvar).value = p.prob
+                    self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDAPROBART, column=p.coluna_salvar).value = p.probart
+
+                self.arquivo.save(parametros[0].nome_tabela)
+            except Exception as e:
+                print(f"Erro ao salvar arquivo: {e}")
+        else :
+            print("Nenhum arquivo aberto, não foi possível salvar.")
 
 # ----------------- TESTE -----------------
-if __name__ == "__main__":
-    tabela = Tabela()
-    tabela.carregarMatriz(FACTORS_POSICOES, "Stock_Data_in_days_cv_02_5V.xlsx", "Main_variables",tabela=0)
+# if __name__ == "__main__":
+#     tabela = Tabela()
+#     tabela.carregarArquivoParaRam(localENome="Stock_Data_in_days_cv_02_5V.xlsx")
+#     supliers = tabela.carregarMatriz(SUPLIERS_POSICOES,"Main_variables",tabela=0)
+#     factors = tabela.carregarMatriz(FACTORS_POSICOES,"Main_variables",tabela=0)
+#     distributors = tabela.carregarMatriz(DISTRIBUTORS_POSICOES,"Main_variables",tabela=0)
+#     retails = tabela.carregarMatriz(RETAILERS_POSICOES,"Main_variables",tabela=0)
 
-    parametros = tabela.pegarParametros()
-    for p in parametros:
-        p.lw = -1
-        p.desv = -2
-        p.prob = -3
-        p.probart = -4
-        print(p)
+#     parametros = supliers + factors + distributors + retails
+#     for p in parametros:
+#         p.lw = -20
+#         p.desv = -21
+#         p.prob = -22
+#         p.probart = -25
+        
+#     tabela.salvarEmLote(parametros)
 
-    tabela.salvarEmLote(parametros)
+
+#     tabela.removerArquivoDaRam()

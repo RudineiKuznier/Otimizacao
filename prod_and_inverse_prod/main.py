@@ -1,6 +1,7 @@
 from inverseProdOfTwoVariables import InverseProdOfTwoVariables
 from prodOfTwoVariables import ProdOfNormalRVs
 from Tabela import Tabela, Parametros
+from Particoes_na_tabela import SUPLIERS_POSICOES, FACTORS_POSICOES, DISTRIBUTORS_POSICOES, RETAILERS_POSICOES
 import threading
 
 mux_parametros = threading.Lock()
@@ -54,108 +55,127 @@ def calculaPROB_thread(parametro: Parametros, index: int):
         with mux_parametros:
             parametro.lw = 0.0
 
-
-
-
 if __name__ == "__main__":
     THREAD_MODE = True
-    NUM_TABELAS = 9  # Número de tabelas a processar
-    
-    todas_threads = []  # Lista para todas as threads de todas as tabelas
-    todas_tabelas = []  # Lista para guardar as tabelas
-    todos_parametros_validos = []  # Lista para todos os parâmetros válidos
-    
-    # Criar todas as tabelas e coletar todos os parâmetros
-    for j in range(NUM_TABELAS):
-        print(f"=== CARREGANDO TABELA {j} ===")
-        tabela = Tabela(pagina='Main_variables', 
-                       localENome='Stock_Data_in_days_cv_0,2_5V_rev05.xlsx', 
-                       matriz_linha=0, 
-                       matriz_coluna=j)
-        
-        parametros_originais = tabela.pegarParametros()
-        parametros_validos = [p for p in parametros_originais if p.mux2 > 0]
-        print(f"Tabela {j}: {len(parametros_validos)} parâmetros válidos")
-        
-        # Guardar tabela e parâmetros para uso posterior
-        todas_tabelas.append(tabela)
-        todos_parametros_validos.extend([(j, i, param) for i, param in enumerate(parametros_validos)])
+    NUM_TABELAS = 9  # número de matrizes (colunas de partição)
+    ARQUIVO = "Stock_Data_in_days_cv_02_5V.xlsx"
+    PAGINA = "Main_variables"
 
-    print(f"\n=== TOTAL: {len(todos_parametros_validos)} parâmetros válidos em {NUM_TABELAS} tabelas ===")
+    # Inicialização
+    tabela = Tabela()
+    tabela.carregarArquivoParaRam(ARQUIVO)
 
-    # Processamento (threads ou sequencial)
+    # lista de partições a carregar
+    particoes = [
+        ("SUPLIERS", SUPLIERS_POSICOES),
+        ("FACTORS", FACTORS_POSICOES)
+        #("DISTRIBUTORS", DISTRIBUTORS_POSICOES),
+        #("RETAILERS", RETAILERS_POSICOES)
+    ]
+
+    todas_threads = []
+    todos_parametros_validos = []
+
+    # --- carregar todas as tabelas ---
+    for nome_particao, particao in particoes:
+        for j in range(NUM_TABELAS):
+            print(f"=== CARREGANDO MATRIZ {nome_particao} #{j} ===")
+            parametros = tabela.carregarMatriz(particao, PAGINA, tabela=j)
+            if not parametros:
+                print(f"⚠️  Nenhum parâmetro lido em {nome_particao} tabela {j}")
+                continue
+
+            def parametro_valido(p: Parametros):
+                return (
+                    p.mux2 is not None and p.muy is not None
+                    and p.sigmax2 is not None and p.sigmay is not None
+                    and p.sigmax2 > 0 and p.sigmay > 0
+                    and p.mux2 > 0 and p.muy > 0
+                )
+
+            parametros_validos = [p for p in parametros if parametro_valido(p)]
+
+            print(f"{nome_particao} tabela {j}: {len(parametros_validos)} parâmetros válidos")
+
+            for i, param in enumerate(parametros_validos):
+                todos_parametros_validos.append((nome_particao, j, i, param))
+
+    print(f"\n=== TOTAL: {len(todos_parametros_validos)} parâmetros válidos em {len(particoes)*NUM_TABELAS} matrizes ===")
+
+    # --- processamento (threads ou sequencial) ---
     if THREAD_MODE:
-        # Disparar TODAS as threads de UMA VEZ
-        for tabela_idx, param_idx, param in todos_parametros_validos:
-            # Thread para LB
-            thread_lb = threading.Thread(
-                target=calculaLB_thread, 
-                args=(param, tabela_idx * 1000 + param_idx),  # ID único
-                name=f"T{tabela_idx}-P{param_idx}-LB"
-            )
-            thread_lb.start()
-            todas_threads.append(thread_lb)
-            
-            # Thread para DESV
-            thread_desv = threading.Thread(
-                target=calculaDESV_thread, 
-                args=(param, tabela_idx * 1000 + param_idx),
-                name=f"T{tabela_idx}-P{param_idx}-DESV"
-            )
-            thread_desv.start()
-            todas_threads.append(thread_desv)
+        print("Iniciando threads de cálculo (LB e DESV)...")
 
-        print(f"Lançadas {len(todas_threads)} threads simultaneamente!")
-        print("Aguardando todas as threads terminarem...")
+        for nome_particao, j, i, param in todos_parametros_validos:
+            # Thread LB
+            t1 = threading.Thread(
+                target=calculaLB_thread,
+                args=(param, j * 1000 + i),
+                name=f"{nome_particao}_T{j}_P{i}_LB"
+            )
+            t1.start()
+            todas_threads.append(t1)
 
-        # Aguardar conclusão de TODAS as threads
-        for i, thread in enumerate(todas_threads):
-            thread.join()
-            if (i + 1) % 10 == 0:  # Log a cada 10 threads
-                print(f"Concluídas {i + 1}/{len(todas_threads)} threads")
-        
+            # Thread DESV
+            t2 = threading.Thread(
+                target=calculaDESV_thread,
+                args=(param, j * 1000 + i),
+                name=f"{nome_particao}_T{j}_P{i}_DESV"
+            )
+            t2.start()
+            todas_threads.append(t2)
+
+        for i, t in enumerate(todas_threads):
+            t.join()
+            if (i + 1) % 20 == 0:
+                print(f"Concluídas {i + 1}/{len(todas_threads)} threads LB/DESV")
+
         todas_threads.clear()
 
-        # Disparar TODAS as threads de PROBABILIDADES
-        for tabela_idx, param_idx, param in todos_parametros_validos:
-            # Thread para LB
-            thread_lb = threading.Thread(
-                target=calculaPROB_thread, 
-                args=(param, tabela_idx * 1000 + param_idx),  # ID único
-                name=f"T{tabela_idx}-P{param_idx}-LB"
-            )
-            thread_lb.start()
-            todas_threads.append(thread_lb)
+        # print("Iniciando threads de probabilidade...")
 
+        # for nome_particao, j, i, param in todos_parametros_validos:
+        #     t3 = threading.Thread(
+        #         target=calculaPROB_thread,
+        #         args=(param, j * 1000 + i),
+        #         name=f"{nome_particao}_T{j}_P{i}_PROB"
+        #     )
+        #     t3.start()
+        #     todas_threads.append(t3)
 
-        for i, thread in enumerate(todas_threads):
-            thread.join()
-            if (i + 1) % 10 == 0:  # Log a cada 10 threads
-                print(f"Concluídas {i + 1}/{len(todas_threads)} threads")
-                
+        # for i, t in enumerate(todas_threads):
+        #     t.join()
+        #     if (i + 1) % 20 == 0:
+        #         print(f"Concluídas {i + 1}/{len(todas_threads)} threads PROB")
+
     else:
-        # Execução sequencial
-        for tabela_idx, param_idx, param in todos_parametros_validos:
-            calculaLB_thread(param, tabela_idx * 1000 + param_idx)
-            calculaDESV_thread(param, tabela_idx * 1000 + param_idx)
-            calculaPROB_thread(param, tabela_idx * 1000 + param_idx)
+        print("Executando cálculos sequencialmente...")
+        for nome_particao, j, i, param in todos_parametros_validos:
+            calculaLB_thread(param, j * 1000 + i)
+            calculaDESV_thread(param, j * 1000 + i)
+            calculaPROB_thread(param, j * 1000 + i)
 
-    # Salvar resultados por tabela
+    # --- salvar resultados ---
     print("\n=== SALVANDO RESULTADOS ===")
-    
-    # Agrupar parâmetros por tabela
-    parametros_por_tabela = [[] for _ in range(NUM_TABELAS)]
-    
-    for tabela_idx, param_idx, param in todos_parametros_validos:
-        parametros_por_tabela[tabela_idx].append(param)
-    
-    # Salvar cada tabela
-    for j in range(NUM_TABELAS):
-        parametros_tabela = parametros_por_tabela[j]
-        if parametros_tabela:
-            todas_tabelas[j].salvarEmLote(parametros=parametros_tabela)
-            print(f"✓ Tabela {j}: {len(parametros_tabela)} resultados salvos")
-        else:
-            print(f"✗ Tabela {j}: Nenhum resultado para salvar")
 
-    print(f"\n🎉 Processo finalizado! {len(todos_parametros_validos)} parâmetros processados em {NUM_TABELAS} tabelas")
+    # agrupar por partição
+    resultados_por_particao = {
+        "SUPLIERS": [],
+        "FACTORS": [],
+        "DISTRIBUTORS": [],
+        "RETAILERS": []
+    }
+    for nome_particao, _, _, param in todos_parametros_validos:
+        resultados_por_particao[nome_particao].append(param)
+
+    for nome_particao, particao in particoes:
+        parametros = resultados_por_particao[nome_particao]
+        if parametros:
+            tabela.salvarEmLote(parametros)
+            print(f"✓ {nome_particao}: {len(parametros)} resultados salvos")
+        else:
+            print(f"✗ {nome_particao}: Nenhum resultado válido")
+
+    tabela.removerArquivoDaRam()
+
+    print(f"\n🎉 Processo finalizado! {len(todos_parametros_validos)} parâmetros processados.")
