@@ -57,7 +57,7 @@ def calculaPROB_thread(parametro: Parametros, index: int):
 
 if __name__ == "__main__":
     THREAD_MODE = True
-    NUM_TABELAS = 9  # número de matrizes (colunas de partição)
+    NUM_TABELAS = 1  # número de matrizes (colunas de partição)
     ARQUIVO = "Stock_Data_in_days_cv_02_5V.xlsx"
     PAGINA = "Main_variables"
 
@@ -87,10 +87,12 @@ if __name__ == "__main__":
 
             def parametro_valido(p: Parametros):
                 return (
-                    p.mux2 is not None and p.muy is not None
-                    and p.sigmax2 is not None and p.sigmay is not None
-                    and p.sigmax2 > 0 and p.sigmay > 0
-                    and p.mux2 > 0 and p.muy > 0
+                    True
+                    # p.mux2 > 0
+                    # is not None and p.muy is not None
+                    # and p.sigmax2 is not None and p.sigmay is not None
+                    # and p.sigmax2 > 0 and p.sigmay > 0
+                    # and p.mux2 > 0 and p.muy > 0
                 )
 
             parametros_validos = [p for p in parametros if parametro_valido(p)]
@@ -101,7 +103,7 @@ if __name__ == "__main__":
                 todos_parametros_validos.append((nome_particao, j, i, param))
 
     print(f"\n=== TOTAL: {len(todos_parametros_validos)} parâmetros válidos em {len(particoes)*NUM_TABELAS} matrizes ===")
-
+    
     # --- processamento (threads ou sequencial) ---
     if THREAD_MODE:
         print("Iniciando threads de cálculo (LB e DESV)...")

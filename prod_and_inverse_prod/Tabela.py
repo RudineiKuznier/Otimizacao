@@ -45,7 +45,7 @@ class Tabela:
         self.localENome = ""
 
     def carregarArquivoParaRam(self, localENome: str):
-        self.arquivo = openpyxl.load_workbook(localENome, data_only=True)
+        self.arquivo = openpyxl.load_workbook(localENome, data_only=False)
         self.localENome = localENome
 
     def removerArquivoDaRam(self):
@@ -93,6 +93,21 @@ class Tabela:
                         constart=constart, muxart=muxart,
                         posicoes_parametros=pos
                     )
+                    if (False):
+                        print(f"\nLendo células - linha_base={linha}, shift_linha={shift_linha}, coluna={coluna}, shift_coluna={shift_coluna}")
+                        print(f"SIGMAXART: row={pos.SIGMAXART + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.SIGMAXART + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"SIGMAYART: row={pos.SIGMAYART + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.SIGMAYART + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"CONSTART: row={pos.CONSTART + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.CONSTART + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"MUXART: row={pos.MUXART + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.MUXART + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"MUY: row={pos.MUY + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.MUY + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"MUX1: row={pos.MUX1 + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.MUX1 + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"SIGMAX1: row={pos.SIGMAX1 + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.SIGMAX1 + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"SIGMAY: row={pos.SIGMAY + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.SIGMAY + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"MUX2: row={pos.MUX2 + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.MUX2 + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"SIGMAX2: row={pos.SIGMAX2 + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.SIGMAX2 + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"REODER_C: row={pos.REODER_C + linha + shift_linha}, column={shift_coluna + coluna}, valor={sheet.cell(row=pos.REODER_C + linha + shift_linha, column=shift_coluna + coluna).value}")
+                        print(f"Valores finais: sigxart={sigxart}, sigyart={sigyart}, constart={constart}, muxart={muxart}, muy={muy}, mux1={mux1}, sigmax1={sigmax1}, sigmay={sigmay}, mux2={mux2}, sigmax2={sigmax2}, reorder_c={reorder_c}")
+                        
                     lista.append(parametro)
 
             return lista

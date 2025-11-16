@@ -49,7 +49,7 @@ SUPLIERS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 138,  #   DesvPad(dema
                                             saidaprob   = 3,    #   P(Reorder)
                                             saidaprobart= 8  )  #   P(Estado da arte)
 # utilize essa variável para carregar todas as factores
-SUPLIERS_POSICOES = Particao(coluna_inicio      = 26,
+SUPLIERS_POSICOES = Particao(coluna_inicio      = 4,
                             linha_inicio        = 0,
                             qtd_linhas          = 3,
                             qtd_colunas         = 15,
@@ -75,8 +75,8 @@ FACTORS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 303,
                                             saidaprob   = 168,
                                             saidaprobart= 173  )
 # utilize essa variável para carregar todas as factores
-FACTORS_POSICOES = Particao(coluna_inicio      = 26,
-                            linha_inicio        = 166,
+FACTORS_POSICOES = Particao(coluna_inicio      = 4,
+                            linha_inicio        = 0,
                             qtd_linhas          = 3,
                             qtd_colunas         = 3,
                             passo_linha         = 0,
@@ -101,8 +101,8 @@ DISTRIBUTORS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 442,
                                             saidaprob   = 333,
                                             saidaprobart= 337  )
 # utilize essa variável para carregar todas as factores
-DISTRIBUTORS_POSICOES = Particao(coluna_inicio      = 26,
-                            linha_inicio        = 331,
+DISTRIBUTORS_POSICOES = Particao(coluna_inicio      = 4,
+                            linha_inicio        = 0,
                             qtd_linhas          = 2,
                             qtd_colunas         = 3,
                             passo_linha         = 0,
@@ -127,8 +127,8 @@ RETAILERS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 5650,
                                             saidaprob   = 466,
                                             saidaprobart= 658  )
 # utilize essa variável para carregar todas as factores
-RETAILERS_POSICOES = Particao(coluna_inicio      = 26,
-                            linha_inicio        = 464,
+RETAILERS_POSICOES = Particao(coluna_inicio      = 4,
+                            linha_inicio        = 0,
                             qtd_linhas          = 190,
                             qtd_colunas         = 3,
                             passo_linha         = 0,
