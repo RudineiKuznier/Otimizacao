@@ -1,8 +1,6 @@
 import numpy as np
-from typing import Tuple
-from scipy.stats import norm, kstest 
+from scipy.stats import norm, gaussian_kde
 from scipy.integrate import quad
-from scipy.stats import gaussian_kde 
 import matplotlib.pyplot as plt
 
 class ProdOfNormalRVs:
@@ -12,194 +10,243 @@ class ProdOfNormalRVs:
         sigmaX: float,
         muY: float,
         sigmaY: float,
-        c = None
+        c: float = None
     ):
-        self.muX: float = muX      
-        self.sigmaX: float = sigmaX    
-        self.muY: float = muY      
-        self.sigmaY: float = sigmaY   
+        self.muX = muX      
+        self.sigmaX = sigmaX    
+        self.muY = muY      
+        self.sigmaY = sigmaY   
 
         if c is None:
-            self.c: float = muX * muY
+            self.c = muX * muY
         else:
-            self.c: float = c 
+            self.c = c 
 
-        self.quad_limit: int = 200 
-        self.quad_err_tol: float = 1e-8 
-
-        self.theoretical_mean: float = muX * muY
-        self.theoretical_variance: float = muX**2 * sigmaY**2 + muY**2 * sigmaX**2 + sigmaX**2 * sigmaY**2
-        self.theoretical_std: float = np.sqrt(self.theoretical_variance)
+        self.theoretical_mean = muX * muY
+        self.theoretical_variance = (muX**2 * sigmaY**2) + (muY**2 * sigmaX**2) + (sigmaX**2 * sigmaY**2)
+        self.theoretical_std = np.sqrt(self.theoretical_variance)
         
         self.mc_result = None
         self.numerical_result = None
         self.Z_samples = None
-        self.n_samples = None
         self.empirical_mean = None
         self.empirical_variance = None
         self.empirical_std = None
 
-    @staticmethod
-    def _integrand(x:float, c:float, muX:float, sigmaX:float, muY:float, sigmaY:float, positive_x:bool) -> float:
+    def _integrand(self, x, c_val):
+        """
+        Calcula P(XY <= c | X=x) * f_X(x).
+        """
         if np.abs(x) < 1e-12:
             return 0.0
         
-        if positive_x:
-            # x > 0: P(Y <= c/x)
-            prob_Y = norm.cdf(c / x, loc=muY, scale=sigmaY)
+        pdf_x = norm.pdf(x, loc=self.muX, scale=self.sigmaX)
+        
+        if pdf_x < 1e-100:
+            return 0.0
+
+        if x > 0:
+            prob_y = norm.cdf(c_val / x, loc=self.muY, scale=self.sigmaY)
         else:
-            # x < 0: P(Y*x <= c) <=> P(Y >= c/x) = 1 - P(Y <= c/x)
-            prob_Y = 1 - norm.cdf(c / x, loc=muY, scale=sigmaY)
+            prob_y = 1 - norm.cdf(c_val / x, loc=self.muY, scale=self.sigmaY)
             
-        return prob_Y * norm.pdf(x, loc=muX, scale=sigmaX)
+        return prob_y * pdf_x
 
     def compute_product_cdf_1d(self, c_val: float) -> float:
-        part1, _ = quad(ProdOfNormalRVs._integrand, 
-                        -np.inf, 0, 
-                        args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, False), 
-                        limit=self.quad_limit, 
-                        epsrel=self.quad_err_tol)
-
-        part2, _ = quad(ProdOfNormalRVs._integrand, 
-                        0, np.inf, 
-                        args=(c_val, self.muX, self.sigmaX, self.muY, self.sigmaY, True), 
-                        limit=self.quad_limit, 
-                        epsrel=self.quad_err_tol)
+        """Calcula a probabilidade P(XY <= c_val) via integração numérica."""
         
-        return round(part1 + part2, 6)
+        # Em vez de integrar de -inf a +inf (o que faz o algoritmo 'perder' o pico da normal
+        # quando a média está longe de zero), definimos limites focados na massa de X.
+        # 12 sigmas cobrem praticamente 100% da probabilidade relevante.
+        
+        n_sigmas = 12
+        x_min = self.muX - n_sigmas * self.sigmaX
+        x_max = self.muX + n_sigmas * self.sigmaX
+        
+        # Sigmas muito pequenos
+        if x_max - x_min < 1e-6:
+            x_min = self.muX - 1.0
+            x_max = self.muX + 1.0
 
-    def solve_cdf(self, n_samples=1000000) -> float:
-        self.n_samples = n_samples
+        res = 0.0
+        
+        # Intervalo Negativo (evitando x=0)
+        # Calcula a intersecção do intervalo relevante [x_min, x_max] com [-inf, -epsilon]
+        neg_lower = x_min
+        neg_upper = min(x_max, -1e-12)
+        
+        if neg_lower < neg_upper:
+            part1, _ = quad(
+                self._integrand, neg_lower, neg_upper, args=(c_val,),
+                limit=200, epsabs=1e-10, epsrel=1e-8
+            )
+            res += part1
 
-        X_samples = self.muX + self.sigmaX * np.random.randn(n_samples)
-        Y_samples = self.muY + self.sigmaY * np.random.randn(n_samples)
+        # Intervalo Positivo (evitando x=0)
+        # Calcula a intersecção do intervalo relevante [x_min, x_max] com [+epsilon, +inf]
+        pos_lower = max(x_min, 1e-12)
+        pos_upper = x_max
+        
+        if pos_lower < pos_upper:
+            part2, _ = quad(
+                self._integrand, pos_lower, pos_upper, args=(c_val,),
+                limit=200, epsabs=1e-10, epsrel=1e-8
+            )
+            res += part2
+
+        self.numerical_result = res
+        return round(self.numerical_result, 6)
+
+    def solve_cdf(self, n_samples=1_000_000) -> float:
+
+        X_samples = np.random.normal(self.muX, self.sigmaX, n_samples)
+        Y_samples = np.random.normal(self.muY, self.sigmaY, n_samples)
         self.Z_samples = X_samples * Y_samples
         
         self.mc_result = np.mean(self.Z_samples <= self.c)
 
+        # Momentos empíricos
         self.empirical_mean = np.mean(self.Z_samples)
         self.empirical_variance = np.var(self.Z_samples)
         self.empirical_std = np.std(self.Z_samples)
 
-        return round(self.theoretical_std,6)
+        # Garante que o numérico seja calculado
+        if self.numerical_result is None:
+            self.compute_product_cdf_1d(self.c)
+            
+        return round(self.theoretical_std, 6)
 
-    def _print_verification_results(self) -> None:
-        """
-        Exibe todos os resultados de momentos e probabilidades.
-        """
+    #Retorno o cálculo de erro percentual entre Monte Carlo e o valor obtido
+    def get_relative_error(self) -> float:
+        
+            if self.numerical_result is None or self.mc_result is None:
+                return 0.0
+          
+            if self.numerical_result == 0:
+               
+                return 0.0 if self.mc_result == 0 else 100.0
+                
+            abs_diff = abs(self.numerical_result - self.mc_result)
+           
+            resultado = (abs_diff / abs(self.numerical_result)) * 100
+            return round(resultado, 3)
+            
+    def _print_verification_results(self):
+        """Imprime os resultados da análise."""
         if self.Z_samples is None:
-            print("ERRO: Execute run_analysis() primeiro.")
+            print("Aviso: Resultados de Monte Carlo não disponíveis. Execute solve_cdf() primeiro.")
             return
 
-        c = self.c
-        k = np.sqrt(c * 14.4)
+        k = np.sqrt(self.c * 14.4)
 
-        print('## Distribution Moments Comparison\n')
-        print('Theoretical Moments:')
-        print(f'  Mean: {self.theoretical_mean:.4f}')
-        print(f'  Variance: {self.theoretical_variance:.4f}')
-        print(f'  Std Dev: {self.theoretical_std:.4f}\n')
+        print('\n' + '='*50)
+        print('## COMPARAÇÃO DOS MOMENTOS DA DISTRIBUIÇÃO')
+        print('='*50)
+        print('Momentos Teóricos:')
+        print(f'  Média:      {self.theoretical_mean:.4f}')
+        print(f'  Variância:  {self.theoretical_variance:.4f}')
+        print(f'  Desv. Pad.: {self.theoretical_std:.4f}\n')
 
-        print('Empirical Moments (Monte Carlo):')
+        print('Momentos Empíricos (Monte Carlo):')
         
+        # Evita divisão por zero no cálculo de erro percentual
+        denom_mean = self.theoretical_mean if self.theoretical_mean != 0 else 1e-9
+        denom_var = self.theoretical_variance if self.theoretical_variance != 0 else 1e-9
+        denom_std = self.theoretical_std if self.theoretical_std != 0 else 1e-9
+
         mean_err = self.empirical_mean - self.theoretical_mean
-        mean_err_perc = np.abs(mean_err) / self.theoretical_mean * 100
-        print(f'  Mean: {self.empirical_mean:.4f} (Error: {mean_err:.4f}, {mean_err_perc:.4f}%)')
+        mean_err_perc = np.abs(mean_err) / np.abs(denom_mean) * 100
+        print(f'  Média:      {self.empirical_mean:.4f} (Erro: {mean_err:.4f}, {mean_err_perc:.4f}%)')
         
         var_err = self.empirical_variance - self.theoretical_variance
-        var_err_perc = np.abs(var_err) / self.theoretical_variance * 100
-        print(f'  Variance: {self.empirical_variance:.4f} (Error: {var_err:.4f}, {var_err_perc:.4f}%)')
+        var_err_perc = np.abs(var_err) / np.abs(denom_var) * 100
+        print(f'  Variância:  {self.empirical_variance:.4f} (Erro: {var_err:.4f}, {var_err_perc:.4f}%)')
         
         std_err = self.empirical_std - self.theoretical_std
-        std_err_perc = np.abs(std_err) / self.theoretical_std * 100
-        print(f'  Std Dev: {self.empirical_std:.4f} (Error: {std_err:.4f}, {std_err_perc:.4f}%)\n')
+        std_err_perc = np.abs(std_err) / np.abs(denom_std) * 100
+        print(f'  Desv. Pad.: {self.empirical_std:.4f} (Erro: {std_err:.4f}, {std_err_perc:.4f}%)\n')
 
-        print('## Probability Results')
-        print(f'Numerical Integration: {self.numerical_result:.6f}')
-        print(f'Monte Carlo Simulation: {self.mc_result:.6f}')
+        print('## RESULTADOS DE PROBABILIDADE P(XY <= c)')
+        print(f' Integração Numérica (c={self.c:.2f}): {self.numerical_result:.6f}')
+        print(f' Simulação Monte Carlo (c={self.c:.2f}): {self.mc_result:.6f}')
+        
         abs_diff = np.abs(self.numerical_result - self.mc_result)
-        print(f'Absolute Difference: {abs_diff:.6f}')
-        print(f'Relative Difference: {abs_diff / self.numerical_result * 100:.4f}%')
+        print(f' Diferença Absoluta: {abs_diff:.6f}')
+        
+        # Evita divisão por zero na diferença relativa
+        denom_num = self.numerical_result if self.numerical_result != 0 else 1e-9
+        rel_diff = (abs_diff / np.abs(denom_num) * 100)
+        print(f' Diferença Relativa: {rel_diff:.4f}%')
         
         print(f'\nk = sqrt(c * 14.4) = {k:.6f}')
-        
-    def plot_cdfs(self) -> None:
-        """
-        Gera os três gráficos: CDF, PDF e Diferença da CDF.
-        """
+
+
+    def plot_cdfs(self):
         if self.Z_samples is None:
-            print("ERRO: Execute run_analysis() primeiro.")
+            print("ERRO: Execute solve_cdf() primeiro.")
             return
 
-        c = self.c
-        
+        # Configuração do range para o plot
         z_range_factor = 4 
         z_center = self.theoretical_mean
         z_half_range = z_range_factor * self.theoretical_std
 
-        z_min_auto = min(z_center - z_half_range, c - z_half_range / 2)
-        z_max_auto = max(z_center + z_half_range, c + z_half_range / 2)
-        z_range = np.linspace(z_min_auto, z_max_auto, 1000)
+        # Garante que 'c' esteja visível no gráfico
+        z_min_auto = min(z_center - z_half_range, self.c - z_half_range / 2)
+        z_max_auto = max(z_center + z_half_range, self.c + z_half_range / 2)
+        z_range = np.linspace(z_min_auto, z_max_auto, 200)
 
-        print("\nCalculando valores da CDF para o plot (Integração)...")
-        cdf_integration = np.array([
-            self.compute_product_cdf_1d(z) for z in z_range
-        ])
+        print("\nGerando gráficos... (Calculando integral para curva CDF, aguarde)")
+        
+        cdf_integration = [self.compute_product_cdf_1d(z) for z in z_range] 
+        cdf_integration = np.array(cdf_integration)
 
-        print("Calculando valores da CDF para o plot (Monte Carlo)...")
-        cdf_empirical = np.array([
-            np.mean(self.Z_samples <= z) for z in z_range
-        ])
+        sorted_samples = np.sort(self.Z_samples)
+        cdf_empirical = np.searchsorted(sorted_samples, z_range, side='right') / len(sorted_samples)
         
         kde = gaussian_kde(self.Z_samples)
         pdf_empirical_kde = kde.evaluate(z_range)
-    
-        pdf_values = norm.pdf(z_range, loc=self.theoretical_mean, scale=self.theoretical_std)
+        pdf_values_normal = norm.pdf(z_range, loc=self.theoretical_mean, scale=self.theoretical_std)
 
-        plt.figure(figsize=(8, 6))
+        # Restaurar valor original para numerical_result (pois o loop acima pode alterar self.numerical_result se não tomar cuidado, mas aqui estamos seguros)
+        self.compute_product_cdf_1d(self.c)
+
+        # --- CDF ---
+        plt.figure(figsize=(10, 6))
         plt.plot(z_range, cdf_integration, 'b-', linewidth=2, label='CDF (Integração)')
         plt.plot(z_range, cdf_empirical, 'r--', linewidth=1.5, label='CDF (Monte Carlo)')
-        plt.axvline(x=c, color='k', linestyle='--', linewidth=2, label=f'c = {c:.2f}')
-        plt.axhline(y=self.numerical_result, color='g', linestyle='--', linewidth=1.5, label=f'P(Z <= c) = {self.numerical_result:.3f}')
+        plt.axvline(x=self.c, color='k', linestyle='--', linewidth=2, label=f'c = {self.c:.2f}')
+        plt.axhline(y=self.numerical_result, color='g', linestyle=':', linewidth=2, label=f'P = {self.numerical_result:.3f}')
         plt.xlabel('z')
-        plt.ylabel('CDF')
-        plt.title('Cumulative Distribution Function of Z = X*Y')
-        plt.legend(loc='upper left')
-        plt.grid(True)
+        plt.ylabel('Probabilidade Acumulada')
+        plt.title('CDF de Z = X*Y')
+        plt.legend(loc='best')
+        plt.grid(True, alpha=0.3)
         plt.xlim([z_min_auto, z_max_auto])
-        plt.ylim([0, 1])
+        plt.ylim([-0.05, 1.05])
         plt.show()
 
-    
-        plt.figure(figsize=(8, 6))
-        plt.plot(z_range, pdf_values, 'b-', linewidth=2, label='Aprox. Normal Teórica')
-        plt.plot(z_range, pdf_empirical_kde, 'm:', linewidth=1.5, label='Empírica (KDE)')
-        plt.axvline(x=c, color='r', linestyle='--', linewidth=2, label=f'c = {c:.2f}')
+        # ---  PDF ---
+        plt.figure(figsize=(10, 6))
+        plt.plot(z_range, pdf_values_normal, 'b-', linewidth=2, label='Aprox. Normal Teórica')
+        plt.plot(z_range, pdf_empirical_kde, 'm:', linewidth=2, label='Empírica (KDE)')
+        plt.axvline(x=self.c, color='r', linestyle='--', linewidth=2, label=f'c = {self.c:.2f}')
         plt.axvline(x=self.theoretical_mean, color='g', linestyle='--', linewidth=1.5, label='Média Teórica')
-        plt.axvline(x=self.empirical_mean, color='c', linestyle='--', linewidth=1.5, label='Média Empírica')
         plt.xlabel('z')
-        plt.ylabel('PDF')
-        plt.title('Probability Density Function of Z = X*Y')
-        plt.legend(loc='upper left')
-        plt.grid(True)
+        plt.ylabel('Densidade de Probabilidade')
+        plt.title('PDF de Z = X*Y')
+        plt.legend(loc='best')
+        plt.grid(True, alpha=0.3)
         plt.xlim([z_min_auto, z_max_auto])
         plt.show()
 
+        # --- Diferença ---
         cdf_difference = np.abs(cdf_integration - cdf_empirical)
-        max_diff = np.max(cdf_difference)
-        mean_diff = np.mean(cdf_difference)
-
-        print('\n## CDF Comparison:')
-        print(f'Maximum absolute difference: {max_diff:.6f}')
-        print(f'Mean absolute difference: {mean_diff:.6f}')
-        print(f'Maximum relative difference: {max_diff / self.numerical_result * 100:.4f}%') # Usando o valor de c como referência
-        
-        plt.figure(figsize=(8, 6))
+        plt.figure(figsize=(10, 6))
         plt.plot(z_range, cdf_difference, 'k-', linewidth=2)
         plt.xlabel('z')
-        plt.ylabel('Absolute Difference')
-        plt.title('Difference between Integration and Monte Carlo CDFs')
-        plt.grid(True)
+        plt.ylabel('Diferença Absoluta')
+        plt.title('Erro Absoluto (Integração vs Monte Carlo)')
+        plt.grid(True, alpha=0.3)
+        plt.xlim([z_min_auto, z_max_auto])
         plt.show()
-
-
