@@ -34,10 +34,8 @@ class ProdOfNormalRVs:
         self.empirical_variance = None
         self.empirical_std = None
 
-    def _integrand(self, x, c_val):
-        """
-        Calcula P(XY <= c | X=x) * f_X(x).
-        """
+    def _integrand(self, x: float, c_val: float) -> float:
+    
         if np.abs(x) < 1e-12:
             return 0.0
         
@@ -53,26 +51,18 @@ class ProdOfNormalRVs:
 
         return prob_y * pdf_x
 
-    def compute_product_cdf_1d(self, c_val: float) -> float:
-        """Calcula a probabilidade P(XY <= c_val) via integração numérica."""
-        
-        # Em vez de integrar de -inf a +inf (o que faz o algoritmo 'perder' o pico da normal
-        # quando a média está longe de zero), definimos limites focados na massa de X.
-        # 12 sigmas cobrem praticamente 100% da probabilidade relevante.
-        
+    def compute_product_cdf_1d(self, c_val: float) -> float:     
         n_sigmas = 12
         x_min = self.muX - n_sigmas * self.sigmaX
         x_max = self.muX + n_sigmas * self.sigmaX
         
-        # Sigmas muito pequenos
         if x_max - x_min < 1e-6:
             x_min = self.muX - 1.0
             x_max = self.muX + 1.0
 
         res = 0.0
         
-        # Intervalo Negativo (evitando x=0)
-        # Calcula a intersecção do intervalo relevante [x_min, x_max] com [-inf, -epsilon]
+        # Calcula a intersecção do intervalo [x_min, x_max] com [-inf, -epsilon]
         neg_lower = x_min
         neg_upper = min(x_max, -1e-12)
         
@@ -83,8 +73,7 @@ class ProdOfNormalRVs:
             )
             res += part1
 
-        # Intervalo Positivo (evitando x=0)
-        # Calcula a intersecção do intervalo relevante [x_min, x_max] com [+epsilon, +inf]
+        # Calcula a intersecção do intervalo [x_min, x_max] com [+epsilon, +inf]
         pos_lower = max(x_min, 1e-12)
         pos_upper = x_max
         
@@ -117,7 +106,6 @@ class ProdOfNormalRVs:
             
         return round(self.theoretical_std, 6)
 
-    #Retorno o cálculo de erro percentual entre Monte Carlo e o valor obtido
     def get_relative_error(self) -> float:
         
             if self.numerical_result is None or self.mc_result is None:
@@ -133,9 +121,8 @@ class ProdOfNormalRVs:
             return round(resultado, 3)
             
     def _print_verification_results(self):
-        """Imprime os resultados da análise."""
         if self.Z_samples is None:
-            print("Aviso: Resultados de Monte Carlo não disponíveis. Execute solve_cdf() primeiro.")
+            print("Resultados de Monte Carlo não disponíveis. Execute solve_cdf() primeiro.")
             return
 
         k = np.sqrt(self.c * 14.4)
@@ -187,17 +174,15 @@ class ProdOfNormalRVs:
             print("ERRO: Execute solve_cdf() primeiro.")
             return
 
-        # Configuração do range para o plot
         z_range_factor = 4 
         z_center = self.theoretical_mean
         z_half_range = z_range_factor * self.theoretical_std
 
-        # Garante que 'c' esteja visível no gráfico
         z_min_auto = min(z_center - z_half_range, self.c - z_half_range / 2)
         z_max_auto = max(z_center + z_half_range, self.c + z_half_range / 2)
         z_range = np.linspace(z_min_auto, z_max_auto, 200)
 
-        print("\nGerando gráficos... (Calculando integral para curva CDF, aguarde)")
+        print("\nCalculando integral para curva CDF")
         
         cdf_integration = [self.compute_product_cdf_1d(z) for z in z_range] 
         cdf_integration = np.array(cdf_integration)
@@ -209,7 +194,6 @@ class ProdOfNormalRVs:
         pdf_empirical_kde = kde.evaluate(z_range)
         pdf_values_normal = norm.pdf(z_range, loc=self.theoretical_mean, scale=self.theoretical_std)
 
-        # Restaurar valor original para numerical_result (pois o loop acima pode alterar self.numerical_result se não tomar cuidado, mas aqui estamos seguros)
         self.compute_product_cdf_1d(self.c)
 
         # --- CDF ---
