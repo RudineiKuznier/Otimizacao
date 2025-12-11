@@ -2,11 +2,21 @@ from prodOfTwoVariables import ProdOfNormalRVs
 
 if __name__ == "__main__":
 
-    muX = 70.27;        # Mean of X
-    sigmaX = 40.77;     # Std dev of X
-    muY = 13.11;        # Mean of Y
-    sigmaY = 0.4786;    # Std dev of Y
-    c = 1591.3746;      # Single value for computation
+    muX=112461.03097441
+    sigmaX=110687.75
+    muY=4.237
+    sigmaY=0.1545
+    #muX = 818.58;       # Mean of X
+    #sigmaX = 655.8325;   # Std dev of X
+    #muY = 21.595;      # Mean of Y
+    #sigmaY = 0.7884;   # Std dev of Y
+    c = 17677.2351;      # Single value for computation
+
+    #muX = 70.27;        # Mean of X
+    #sigmaX = 40.77;     # Std dev of X
+    #muY = 13.11;        # Mean of Y
+    #sigmaY = 0.4786;    # Std dev of Y
+    #c = 1591.3746;      # Single value for computation
 
     try:
         analyzer = ProdOfNormalRVs(muX, sigmaX, muY, sigmaY, c)
