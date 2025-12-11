@@ -167,43 +167,79 @@ class InverseProdOfTwoVariables:
                 c, self.muX, self.sigmaX, self.muY, self.sigmaY
             ) - self.target_p
         
-        # Define limites de busca seguros
-        lower_bound = self.initial_guess - 5 * self.theoretical_std
-        upper_bound = self.initial_guess + 5 * self.theoretical_std
+        # Estratégia adaptativa para encontrar limites válidos
+        def find_valid_bounds():
+            """Encontra limites onde a função muda de sinal"""
+            
+            # Começa com intervalo baseado no desvio padrão
+            scale = self.theoretical_std
+            lower = self.initial_guess - 3 * scale
+            upper = self.initial_guess + 3 * scale
+            
+            # Garante que não seja muito pequeno
+            if upper - lower < abs(self.initial_guess) * 0.1:
+                range_size = max(abs(self.initial_guess) * 0.5, scale * 2)
+                lower = self.initial_guess - range_size
+                upper = self.initial_guess + range_size
+            
+            # Tenta expandir até encontrar mudança de sinal
+            for attempt in range(15):  # Aumentado de 5 para 15
+                try:
+                    f_lower = objective(lower)
+                    f_upper = objective(upper)
+                    
+                    # Verifica mudança de sinal
+                    if f_lower * f_upper < 0:
+                        return lower, upper, True
+                    
+                    # Estratégia de expansão adaptativa
+                    if attempt < 5:
+                        # Primeiras tentativas: expande simetricamente
+                        expansion = scale * (2 ** attempt)
+                        lower = self.initial_guess - expansion
+                        upper = self.initial_guess + expansion
+                    else:
+                        # Tentativas posteriores: expande assimetricamente
+                        if abs(f_lower) < abs(f_upper):
+                            # target_p está abaixo de lower
+                            lower -= scale * 3
+                        else:
+                            # target_p está acima de upper
+                            upper += scale * 3
+                    
+                except Exception:
+                    # Se houver erro no cálculo, tenta outro intervalo
+                    lower -= scale
+                    upper += scale
+            
+            return None, None, False
         
-        # Testa se a função muda de sinal
+        # Tenta encontrar solução
         try:
-            f_lower = objective(lower_bound)
-            f_upper = objective(upper_bound)
+            lower_bound, upper_bound, found = find_valid_bounds()
             
-            # Se não muda de sinal, expande o intervalo
-            max_attempts = 5
-            attempt = 0
-            while f_lower * f_upper > 0 and attempt < max_attempts:
-                lower_bound -= 2 * self.theoretical_std
-                upper_bound += 2 * self.theoretical_std
-                f_lower = objective(lower_bound)
-                f_upper = objective(upper_bound)
-                attempt += 1
-            
-            if f_lower * f_upper > 0:
-                # Se ainda não muda de sinal, usa fsolve como fallback
-                print(f"⚠ Aviso: usando fsolve como fallback")
-                result = fsolve(objective, self.initial_guess, full_output=True, xtol=1e-6)
-                self.c_solution = float(result[0][0])
-            else:
-                # Usa brentq (mais robusto que bisect)
+            if found:
+                # Usa brentq com limites válidos
                 self.c_solution = brentq(
                     objective,
                     lower_bound,
                     upper_bound,
                     xtol=1e-8,
+                    rtol=1e-6,
                     maxiter=100
                 )
+            else:
+                # Fallback: usa fsolve
+                result = fsolve(objective, self.initial_guess, full_output=True, xtol=1e-6)
+                self.c_solution = float(result[0][0])
+                
+                # Verifica se fsolve convergiu
+                if result[2] != 1:
+                    # Se fsolve falhou, usa o chute inicial
+                    self.c_solution = self.initial_guess
         
         except Exception as e:
-            print(f"⚠ Erro ao resolver: {str(e)[:100]}")
-            print(f"  Usando chute inicial como aproximação")
+            # Último fallback: chute inicial
             self.c_solution = self.initial_guess
         
         # Validação Monte Carlo
