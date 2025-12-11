@@ -36,7 +36,7 @@ class ProdOfNormalRVs:
 
     def _integrand(self, x: float, c_val: float) -> float:
     
-        if np.abs(x) < 1e-12:
+        if np.abs(x) < 1e-6:
             return 0.0
         
         pdf_x = norm.pdf(x, loc=self.muX, scale=self.sigmaX)
@@ -63,13 +63,13 @@ class ProdOfNormalRVs:
         res = 0.0
         
         # Calcula a intersecção do intervalo [x_min, x_max] com [-inf, -epsilon]
-        neg_lower = x_min
-        neg_upper = min(x_max, -1e-12)
+        neg_lower = min(x_min,1e-6) 
+        neg_upper = min(x_max, -1e-6)
         
         if neg_lower < neg_upper:
             part1, _ = quad(
                 self._integrand, neg_lower, neg_upper, args=(c_val,),
-                limit=200, epsabs=1e-10, epsrel=1e-8
+                limit=200, epsabs=1e-8, epsrel=1e-6
             )
             res += part1
 
@@ -80,7 +80,7 @@ class ProdOfNormalRVs:
         if pos_lower < pos_upper:
             part2, _ = quad(
                 self._integrand, pos_lower, pos_upper, args=(c_val,),
-                limit=200, epsabs=1e-10, epsrel=1e-8
+                limit=200, epsabs=1e-8, epsrel=1e-6
             )
             res += part2
 
