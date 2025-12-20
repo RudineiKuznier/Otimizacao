@@ -1,0 +1,7346 @@
+[
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "P(Reorder)",
+        "range": "Z3:AN5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "P(Estado da arte)",
+        "range": "Z8:AN10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Reorder",
+        "range": "Z13:AN15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Var(Var(d))",
+        "range": "Z18:AN20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Var(Var(Cap))",
+        "range": "Z23:AN25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "CV",
+        "range": "Z28:AN30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Planned Stock",
+        "range": "Z33:AN35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "Z38:AN40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "demand",
+        "range": "Z43:AN45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Média(E(RLT))",
+        "range": "Z48:AN50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Cap",
+        "range": "Z53:AN55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Var(d-cap)",
+        "range": "Z58:AN60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "Z63:AN65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "Z68:AN70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Média(d-Cap)",
+        "range": "Z73:AN75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "Z78:AN80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "LB",
+        "range": "Z83:AN85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "Z88:AN90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(Cap)",
+        "range": "Z93:AN95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "z(RLT)",
+        "range": "Z98:AN100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Aleatória S2nd",
+        "range": "Z103:AN105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Radicand",
+        "range": "Z108:AN110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "SQRT",
+        "range": "Z113:AN115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "ND*ELT",
+        "range": "Z118:AN120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Aleatória RLT",
+        "range": "Z123:AN125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "ActualRotw",
+        "range": "Z128:AN130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "Z133:AN135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(demand)",
+        "range": "Z138:AN140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "Z143:AN145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "Z148:AN150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Média(D*E(RLT))",
+        "range": "Z153:AN155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "Z158:AN160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "Erro > 0,01%",
+        "range": "Z163:AN165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 1,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "Z6802:AN6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "P(Reorder)",
+        "range": "AV3:BJ5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "P(Estado da arte)",
+        "range": "AV8:BJ10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Reorder",
+        "range": "AV13:BJ15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Var(Var(d))",
+        "range": "AV18:BJ20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Var(Var(Cap))",
+        "range": "AV23:BJ25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "CV",
+        "range": "AV28:BJ30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Planned Stock",
+        "range": "AV33:BJ35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "AV38:BJ40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "demand",
+        "range": "AV43:BJ45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Média(E(RLT))",
+        "range": "AV48:BJ50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Cap",
+        "range": "AV53:BJ55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Var(d-cap)",
+        "range": "AV58:BJ60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "AV63:BJ65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "AV68:BJ70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Média(d-Cap)",
+        "range": "AV73:BJ75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "AV78:BJ80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "LB",
+        "range": "AV83:BJ85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "AV88:BJ90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(Cap)",
+        "range": "AV93:BJ95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "z(RLT)",
+        "range": "AV98:BJ100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Aleatória S2nd",
+        "range": "AV103:BJ105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Radicand",
+        "range": "AV108:BJ110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "SQRT",
+        "range": "AV113:BJ115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "ND*ELT",
+        "range": "AV118:BJ120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Aleatória RLT",
+        "range": "AV123:BJ125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "ActualRotw",
+        "range": "AV128:BJ130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "AV133:BJ135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(demand)",
+        "range": "AV138:BJ140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "AV143:BJ145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "AV148:BJ150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Média(D*E(RLT))",
+        "range": "AV153:BJ155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "AV158:BJ160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "Erro > 0,01%",
+        "range": "AV163:BJ165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 2,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "AV6802:BJ6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "P(Reorder)",
+        "range": "BR3:CF5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "P(Estado da arte)",
+        "range": "BR8:CF10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Reorder",
+        "range": "BR13:CF15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Var(Var(d))",
+        "range": "BR18:CF20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Var(Var(Cap))",
+        "range": "BR23:CF25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "CV",
+        "range": "BR28:CF30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Planned Stock",
+        "range": "BR33:CF35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "BR38:CF40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "demand",
+        "range": "BR43:CF45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Média(E(RLT))",
+        "range": "BR48:CF50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Cap",
+        "range": "BR53:CF55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Var(d-cap)",
+        "range": "BR58:CF60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "BR63:CF65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "BR68:CF70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Média(d-Cap)",
+        "range": "BR73:CF75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "BR78:CF80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "LB",
+        "range": "BR83:CF85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "BR88:CF90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(Cap)",
+        "range": "BR93:CF95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "z(RLT)",
+        "range": "BR98:CF100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Aleatória S2nd",
+        "range": "BR103:CF105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Radicand",
+        "range": "BR108:CF110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "SQRT",
+        "range": "BR113:CF115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "ND*ELT",
+        "range": "BR118:CF120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Aleatória RLT",
+        "range": "BR123:CF125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "ActualRotw",
+        "range": "BR128:CF130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "BR133:CF135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(demand)",
+        "range": "BR138:CF140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "BR143:CF145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "BR148:CF150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Média(D*E(RLT))",
+        "range": "BR153:CF155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "BR158:CF160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "Erro > 0,01%",
+        "range": "BR163:CF165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 3,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "BR6802:CF6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "P(Reorder)",
+        "range": "CN3:DB5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "P(Estado da arte)",
+        "range": "CN8:DB10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Reorder",
+        "range": "CN13:DB15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Var(Var(d))",
+        "range": "CN18:DB20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Var(Var(Cap))",
+        "range": "CN23:DB25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "CV",
+        "range": "CN28:DB30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Planned Stock",
+        "range": "CN33:DB35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "CN38:DB40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "demand",
+        "range": "CN43:DB45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Média(E(RLT))",
+        "range": "CN48:DB50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Cap",
+        "range": "CN53:DB55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Var(d-cap)",
+        "range": "CN58:DB60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "CN63:DB65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "CN68:DB70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Média(d-Cap)",
+        "range": "CN73:DB75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "CN78:DB80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "LB",
+        "range": "CN83:DB85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "CN88:DB90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(Cap)",
+        "range": "CN93:DB95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "z(RLT)",
+        "range": "CN98:DB100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Aleatória S2nd",
+        "range": "CN103:DB105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Radicand",
+        "range": "CN108:DB110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "SQRT",
+        "range": "CN113:DB115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "ND*ELT",
+        "range": "CN118:DB120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Aleatória RLT",
+        "range": "CN123:DB125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "ActualRotw",
+        "range": "CN128:DB130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "CN133:DB135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(demand)",
+        "range": "CN138:DB140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "CN143:DB145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "CN148:DB150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Média(D*E(RLT))",
+        "range": "CN153:DB155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "CN158:DB160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "Erro > 0,01%",
+        "range": "CN163:DB165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 4,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "CN6802:DB6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "P(Reorder)",
+        "range": "DJ3:DX5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "P(Estado da arte)",
+        "range": "DJ8:DX10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Reorder",
+        "range": "DJ13:DX15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Var(Var(d))",
+        "range": "DJ18:DX20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Var(Var(Cap))",
+        "range": "DJ23:DX25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "CV",
+        "range": "DJ28:DX30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Planned Stock",
+        "range": "DJ33:DX35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "DJ38:DX40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "demand",
+        "range": "DJ43:DX45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Média(E(RLT))",
+        "range": "DJ48:DX50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Cap",
+        "range": "DJ53:DX55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Var(d-cap)",
+        "range": "DJ58:DX60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "DJ63:DX65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "DJ68:DX70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Média(d-Cap)",
+        "range": "DJ73:DX75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "DJ78:DX80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "LB",
+        "range": "DJ83:DX85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "DJ88:DX90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(Cap)",
+        "range": "DJ93:DX95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "z(RLT)",
+        "range": "DJ98:DX100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Aleatória S2nd",
+        "range": "DJ103:DX105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Radicand",
+        "range": "DJ108:DX110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "SQRT",
+        "range": "DJ113:DX115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "ND*ELT",
+        "range": "DJ118:DX120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Aleatória RLT",
+        "range": "DJ123:DX125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "ActualRotw",
+        "range": "DJ128:DX130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "DJ133:DX135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(demand)",
+        "range": "DJ138:DX140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "DJ143:DX145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "DJ148:DX150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Média(D*E(RLT))",
+        "range": "DJ153:DX155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "DJ158:DX160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "Erro > 0,01%",
+        "range": "DJ163:DX165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 5,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "DJ6802:DX6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "P(Reorder)",
+        "range": "EF3:ET5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "P(Estado da arte)",
+        "range": "EF8:ET10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Reorder",
+        "range": "EF13:ET15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Var(Var(d))",
+        "range": "EF18:ET20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Var(Var(Cap))",
+        "range": "EF23:ET25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "CV",
+        "range": "EF28:ET30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Planned Stock",
+        "range": "EF33:ET35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "EF38:ET40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "demand",
+        "range": "EF43:ET45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Média(E(RLT))",
+        "range": "EF48:ET50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Cap",
+        "range": "EF53:ET55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Var(d-cap)",
+        "range": "EF58:ET60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "EF63:ET65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "EF68:ET70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Média(d-Cap)",
+        "range": "EF73:ET75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "EF78:ET80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "LB",
+        "range": "EF83:ET85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "EF88:ET90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(Cap)",
+        "range": "EF93:ET95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "z(RLT)",
+        "range": "EF98:ET100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Aleatória S2nd",
+        "range": "EF103:ET105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Radicand",
+        "range": "EF108:ET110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "SQRT",
+        "range": "EF113:ET115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "ND*ELT",
+        "range": "EF118:ET120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Aleatória RLT",
+        "range": "EF123:ET125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "ActualRotw",
+        "range": "EF128:ET130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "EF133:ET135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(demand)",
+        "range": "EF138:ET140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "EF143:ET145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "EF148:ET150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Média(D*E(RLT))",
+        "range": "EF153:ET155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "EF158:ET160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "Erro > 0,01%",
+        "range": "EF163:ET165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 6,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "EF6802:ET6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "P(Reorder)",
+        "range": "FB3:FP5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "P(Estado da arte)",
+        "range": "FB8:FP10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Reorder",
+        "range": "FB13:FP15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Var(Var(d))",
+        "range": "FB18:FP20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Var(Var(Cap))",
+        "range": "FB23:FP25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "CV",
+        "range": "FB28:FP30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Planned Stock",
+        "range": "FB33:FP35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FB38:FP40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "demand",
+        "range": "FB43:FP45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Média(E(RLT))",
+        "range": "FB48:FP50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Cap",
+        "range": "FB53:FP55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Var(d-cap)",
+        "range": "FB58:FP60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FB63:FP65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FB68:FP70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Média(d-Cap)",
+        "range": "FB73:FP75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FB78:FP80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "LB",
+        "range": "FB83:FP85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FB88:FP90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(Cap)",
+        "range": "FB93:FP95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "z(RLT)",
+        "range": "FB98:FP100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Aleatória S2nd",
+        "range": "FB103:FP105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Radicand",
+        "range": "FB108:FP110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "SQRT",
+        "range": "FB113:FP115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "ND*ELT",
+        "range": "FB118:FP120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Aleatória RLT",
+        "range": "FB123:FP125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "ActualRotw",
+        "range": "FB128:FP130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FB133:FP135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(demand)",
+        "range": "FB138:FP140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FB143:FP145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FB148:FP150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FB153:FP155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FB158:FP160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "Erro > 0,01%",
+        "range": "FB163:FP165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 7,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FB6802:FP6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "P(Reorder)",
+        "range": "FX3:GL5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "P(Estado da arte)",
+        "range": "FX8:GL10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Reorder",
+        "range": "FX13:GL15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Var(Var(d))",
+        "range": "FX18:GL20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Var(Var(Cap))",
+        "range": "FX23:GL25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "CV",
+        "range": "FX28:GL30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Planned Stock",
+        "range": "FX33:GL35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FX38:GL40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "demand",
+        "range": "FX43:GL45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Média(E(RLT))",
+        "range": "FX48:GL50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Cap",
+        "range": "FX53:GL55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Var(d-cap)",
+        "range": "FX58:GL60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FX63:GL65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FX68:GL70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Média(d-Cap)",
+        "range": "FX73:GL75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FX78:GL80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "LB",
+        "range": "FX83:GL85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FX88:GL90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(Cap)",
+        "range": "FX93:GL95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "z(RLT)",
+        "range": "FX98:GL100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Aleatória S2nd",
+        "range": "FX103:GL105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Radicand",
+        "range": "FX108:GL110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "SQRT",
+        "range": "FX113:GL115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "ND*ELT",
+        "range": "FX118:GL120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Aleatória RLT",
+        "range": "FX123:GL125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "ActualRotw",
+        "range": "FX128:GL130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FX133:GL135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(demand)",
+        "range": "FX138:GL140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FX143:GL145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FX148:GL150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FX153:GL155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FX158:GL160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "Erro > 0,01%",
+        "range": "FX163:GL165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 8,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FX6802:GL6804"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "P(Reorder)",
+        "range": "GT3:HH5"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "P(Estado da arte)",
+        "range": "GT8:HH10"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Reorder",
+        "range": "GT13:HH15"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Var(Var(d))",
+        "range": "GT18:HH20"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Var(Var(Cap))",
+        "range": "GT23:HH25"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "CV",
+        "range": "GT28:HH30"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Planned Stock",
+        "range": "GT33:HH35"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "GT38:HH40"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "demand",
+        "range": "GT43:HH45"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Média(E(RLT))",
+        "range": "GT48:HH50"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Cap",
+        "range": "GT53:HH55"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Var(d-cap)",
+        "range": "GT58:HH60"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "GT63:HH65"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "GT68:HH70"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Média(d-Cap)",
+        "range": "GT73:HH75"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "GT78:HH80"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "LB",
+        "range": "GT83:HH85"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "GT88:HH90"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(Cap)",
+        "range": "GT93:HH95"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "z(RLT)",
+        "range": "GT98:HH100"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Aleatória S2nd",
+        "range": "GT103:HH105"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Radicand",
+        "range": "GT108:HH110"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "SQRT",
+        "range": "GT113:HH115"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "ND*ELT",
+        "range": "GT118:HH120"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Aleatória RLT",
+        "range": "GT123:HH125"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "ActualRotw",
+        "range": "GT128:HH130"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "GT133:HH135"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(demand)",
+        "range": "GT138:HH140"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "GT143:HH145"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "GT148:HH150"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Média(D*E(RLT))",
+        "range": "GT153:HH155"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "GT158:HH160"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "Erro > 0,01%",
+        "range": "GT163:HH165"
+    },
+    {
+        "grupo": "Suppliers",
+        "tabela": 9,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "GT6802:HH6804"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "P(Reorder)",
+        "range": "Z168:AB170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "P(Estado da arte)",
+        "range": "Z173:AB175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Reorder",
+        "range": "Z178:AB180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Var(Var(d))",
+        "range": "Z183:AB185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Var(Var(Cap))",
+        "range": "Z188:AB190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "CV",
+        "range": "Z193:AB195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Planned Stock",
+        "range": "Z198:AB200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "Z203:AB205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "demand",
+        "range": "Z208:AB210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Média(E(RLT))",
+        "range": "Z213:AB215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Cap",
+        "range": "Z218:AB220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Var(d-cap)",
+        "range": "Z223:AB225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "Z228:AB230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "Z233:AB235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Média(d-Cap)",
+        "range": "Z238:AB240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "Z243:AB245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "LB",
+        "range": "Z248:AB250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "Z253:AB255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(Cap)",
+        "range": "Z258:AB260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "z(RLT)",
+        "range": "Z263:AB265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Aleatória S2nd",
+        "range": "Z268:AB270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Radicand",
+        "range": "Z273:AB275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "SQRT",
+        "range": "Z278:AB280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "ND*ELT",
+        "range": "Z283:AB285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Aleatória RLT",
+        "range": "Z288:AB290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "ActualRotw",
+        "range": "Z293:AB295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "Z298:AB300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(demand)",
+        "range": "Z303:AB305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "Z308:AB310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "Z313:AB315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Média(D*E(RLT))",
+        "range": "Z318:AB320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "Z323:AB325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "Erro > 0,01%",
+        "range": "Z328:AB330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 1,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "Z6807:AB6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "P(Reorder)",
+        "range": "AV168:AX170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "P(Estado da arte)",
+        "range": "AV173:AX175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Reorder",
+        "range": "AV178:AX180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Var(Var(d))",
+        "range": "AV183:AX185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Var(Var(Cap))",
+        "range": "AV188:AX190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "CV",
+        "range": "AV193:AX195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Planned Stock",
+        "range": "AV198:AX200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "AV203:AX205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "demand",
+        "range": "AV208:AX210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Média(E(RLT))",
+        "range": "AV213:AX215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Cap",
+        "range": "AV218:AX220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Var(d-cap)",
+        "range": "AV223:AX225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "AV228:AX230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "AV233:AX235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Média(d-Cap)",
+        "range": "AV238:AX240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "AV243:AX245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "LB",
+        "range": "AV248:AX250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "AV253:AX255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(Cap)",
+        "range": "AV258:AX260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "z(RLT)",
+        "range": "AV263:AX265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Aleatória S2nd",
+        "range": "AV268:AX270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Radicand",
+        "range": "AV273:AX275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "SQRT",
+        "range": "AV278:AX280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "ND*ELT",
+        "range": "AV283:AX285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Aleatória RLT",
+        "range": "AV288:AX290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "ActualRotw",
+        "range": "AV293:AX295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "AV298:AX300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(demand)",
+        "range": "AV303:AX305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "AV308:AX310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "AV313:AX315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Média(D*E(RLT))",
+        "range": "AV318:AX320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "AV323:AX325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "Erro > 0,01%",
+        "range": "AV328:AX330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 2,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "AV6807:AX6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "P(Reorder)",
+        "range": "BR168:BT170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "P(Estado da arte)",
+        "range": "BR173:BT175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Reorder",
+        "range": "BR178:BT180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Var(Var(d))",
+        "range": "BR183:BT185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Var(Var(Cap))",
+        "range": "BR188:BT190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "CV",
+        "range": "BR193:BT195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Planned Stock",
+        "range": "BR198:BT200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "BR203:BT205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "demand",
+        "range": "BR208:BT210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Média(E(RLT))",
+        "range": "BR213:BT215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Cap",
+        "range": "BR218:BT220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Var(d-cap)",
+        "range": "BR223:BT225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "BR228:BT230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "BR233:BT235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Média(d-Cap)",
+        "range": "BR238:BT240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "BR243:BT245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "LB",
+        "range": "BR248:BT250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "BR253:BT255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(Cap)",
+        "range": "BR258:BT260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "z(RLT)",
+        "range": "BR263:BT265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Aleatória S2nd",
+        "range": "BR268:BT270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Radicand",
+        "range": "BR273:BT275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "SQRT",
+        "range": "BR278:BT280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "ND*ELT",
+        "range": "BR283:BT285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Aleatória RLT",
+        "range": "BR288:BT290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "ActualRotw",
+        "range": "BR293:BT295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "BR298:BT300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(demand)",
+        "range": "BR303:BT305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "BR308:BT310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "BR313:BT315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Média(D*E(RLT))",
+        "range": "BR318:BT320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "BR323:BT325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "Erro > 0,01%",
+        "range": "BR328:BT330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 3,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "BR6807:BT6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "P(Reorder)",
+        "range": "CN168:CP170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "P(Estado da arte)",
+        "range": "CN173:CP175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Reorder",
+        "range": "CN178:CP180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Var(Var(d))",
+        "range": "CN183:CP185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Var(Var(Cap))",
+        "range": "CN188:CP190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "CV",
+        "range": "CN193:CP195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Planned Stock",
+        "range": "CN198:CP200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "CN203:CP205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "demand",
+        "range": "CN208:CP210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Média(E(RLT))",
+        "range": "CN213:CP215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Cap",
+        "range": "CN218:CP220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Var(d-cap)",
+        "range": "CN223:CP225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "CN228:CP230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "CN233:CP235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Média(d-Cap)",
+        "range": "CN238:CP240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "CN243:CP245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "LB",
+        "range": "CN248:CP250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "CN253:CP255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(Cap)",
+        "range": "CN258:CP260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "z(RLT)",
+        "range": "CN263:CP265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Aleatória S2nd",
+        "range": "CN268:CP270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Radicand",
+        "range": "CN273:CP275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "SQRT",
+        "range": "CN278:CP280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "ND*ELT",
+        "range": "CN283:CP285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Aleatória RLT",
+        "range": "CN288:CP290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "ActualRotw",
+        "range": "CN293:CP295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "CN298:CP300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(demand)",
+        "range": "CN303:CP305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "CN308:CP310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "CN313:CP315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Média(D*E(RLT))",
+        "range": "CN318:CP320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "CN323:CP325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "Erro > 0,01%",
+        "range": "CN328:CP330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 4,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "CN6807:CP6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "P(Reorder)",
+        "range": "DJ168:DL170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "P(Estado da arte)",
+        "range": "DJ173:DL175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Reorder",
+        "range": "DJ178:DL180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Var(Var(d))",
+        "range": "DJ183:DL185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Var(Var(Cap))",
+        "range": "DJ188:DL190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "CV",
+        "range": "DJ193:DL195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Planned Stock",
+        "range": "DJ198:DL200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "DJ203:DL205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "demand",
+        "range": "DJ208:DL210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Média(E(RLT))",
+        "range": "DJ213:DL215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Cap",
+        "range": "DJ218:DL220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Var(d-cap)",
+        "range": "DJ223:DL225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "DJ228:DL230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "DJ233:DL235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Média(d-Cap)",
+        "range": "DJ238:DL240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "DJ243:DL245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "LB",
+        "range": "DJ248:DL250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "DJ253:DL255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(Cap)",
+        "range": "DJ258:DL260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "z(RLT)",
+        "range": "DJ263:DL265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Aleatória S2nd",
+        "range": "DJ268:DL270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Radicand",
+        "range": "DJ273:DL275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "SQRT",
+        "range": "DJ278:DL280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "ND*ELT",
+        "range": "DJ283:DL285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Aleatória RLT",
+        "range": "DJ288:DL290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "ActualRotw",
+        "range": "DJ293:DL295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "DJ298:DL300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(demand)",
+        "range": "DJ303:DL305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "DJ308:DL310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "DJ313:DL315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Média(D*E(RLT))",
+        "range": "DJ318:DL320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "DJ323:DL325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "Erro > 0,01%",
+        "range": "DJ328:DL330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 5,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "DJ6807:DL6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "P(Reorder)",
+        "range": "EF168:EH170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "P(Estado da arte)",
+        "range": "EF173:EH175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Reorder",
+        "range": "EF178:EH180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Var(Var(d))",
+        "range": "EF183:EH185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Var(Var(Cap))",
+        "range": "EF188:EH190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "CV",
+        "range": "EF193:EH195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Planned Stock",
+        "range": "EF198:EH200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "EF203:EH205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "demand",
+        "range": "EF208:EH210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Média(E(RLT))",
+        "range": "EF213:EH215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Cap",
+        "range": "EF218:EH220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Var(d-cap)",
+        "range": "EF223:EH225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "EF228:EH230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "EF233:EH235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Média(d-Cap)",
+        "range": "EF238:EH240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "EF243:EH245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "LB",
+        "range": "EF248:EH250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "EF253:EH255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(Cap)",
+        "range": "EF258:EH260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "z(RLT)",
+        "range": "EF263:EH265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Aleatória S2nd",
+        "range": "EF268:EH270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Radicand",
+        "range": "EF273:EH275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "SQRT",
+        "range": "EF278:EH280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "ND*ELT",
+        "range": "EF283:EH285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Aleatória RLT",
+        "range": "EF288:EH290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "ActualRotw",
+        "range": "EF293:EH295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "EF298:EH300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(demand)",
+        "range": "EF303:EH305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "EF308:EH310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "EF313:EH315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Média(D*E(RLT))",
+        "range": "EF318:EH320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "EF323:EH325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "Erro > 0,01%",
+        "range": "EF328:EH330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 6,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "EF6807:EH6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "P(Reorder)",
+        "range": "FB168:FD170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "P(Estado da arte)",
+        "range": "FB173:FD175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Reorder",
+        "range": "FB178:FD180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Var(Var(d))",
+        "range": "FB183:FD185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Var(Var(Cap))",
+        "range": "FB188:FD190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "CV",
+        "range": "FB193:FD195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Planned Stock",
+        "range": "FB198:FD200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FB203:FD205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "demand",
+        "range": "FB208:FD210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Média(E(RLT))",
+        "range": "FB213:FD215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Cap",
+        "range": "FB218:FD220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Var(d-cap)",
+        "range": "FB223:FD225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FB228:FD230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FB233:FD235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Média(d-Cap)",
+        "range": "FB238:FD240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FB243:FD245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "LB",
+        "range": "FB248:FD250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FB253:FD255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(Cap)",
+        "range": "FB258:FD260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "z(RLT)",
+        "range": "FB263:FD265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Aleatória S2nd",
+        "range": "FB268:FD270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Radicand",
+        "range": "FB273:FD275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "SQRT",
+        "range": "FB278:FD280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "ND*ELT",
+        "range": "FB283:FD285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Aleatória RLT",
+        "range": "FB288:FD290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "ActualRotw",
+        "range": "FB293:FD295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FB298:FD300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(demand)",
+        "range": "FB303:FD305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FB308:FD310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FB313:FD315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FB318:FD320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FB323:FD325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "Erro > 0,01%",
+        "range": "FB328:FD330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 7,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FB6807:FD6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "P(Reorder)",
+        "range": "FX168:FZ170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "P(Estado da arte)",
+        "range": "FX173:FZ175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Reorder",
+        "range": "FX178:FZ180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Var(Var(d))",
+        "range": "FX183:FZ185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Var(Var(Cap))",
+        "range": "FX188:FZ190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "CV",
+        "range": "FX193:FZ195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Planned Stock",
+        "range": "FX198:FZ200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FX203:FZ205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "demand",
+        "range": "FX208:FZ210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Média(E(RLT))",
+        "range": "FX213:FZ215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Cap",
+        "range": "FX218:FZ220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Var(d-cap)",
+        "range": "FX223:FZ225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FX228:FZ230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FX233:FZ235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Média(d-Cap)",
+        "range": "FX238:FZ240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FX243:FZ245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "LB",
+        "range": "FX248:FZ250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FX253:FZ255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(Cap)",
+        "range": "FX258:FZ260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "z(RLT)",
+        "range": "FX263:FZ265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Aleatória S2nd",
+        "range": "FX268:FZ270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Radicand",
+        "range": "FX273:FZ275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "SQRT",
+        "range": "FX278:FZ280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "ND*ELT",
+        "range": "FX283:FZ285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Aleatória RLT",
+        "range": "FX288:FZ290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "ActualRotw",
+        "range": "FX293:FZ295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FX298:FZ300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(demand)",
+        "range": "FX303:FZ305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FX308:FZ310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FX313:FZ315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FX318:FZ320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FX323:FZ325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "Erro > 0,01%",
+        "range": "FX328:FZ330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 8,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FX6807:FZ6809"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "P(Reorder)",
+        "range": "GT168:GV170"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "P(Estado da arte)",
+        "range": "GT173:GV175"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Reorder",
+        "range": "GT178:GV180"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Var(Var(d))",
+        "range": "GT183:GV185"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Var(Var(Cap))",
+        "range": "GT188:GV190"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "CV",
+        "range": "GT193:GV195"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Planned Stock",
+        "range": "GT198:GV200"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "GT203:GV205"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "demand",
+        "range": "GT208:GV210"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Média(E(RLT))",
+        "range": "GT213:GV215"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Cap",
+        "range": "GT218:GV220"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Var(d-cap)",
+        "range": "GT223:GV225"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "GT228:GV230"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "GT233:GV235"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Média(d-Cap)",
+        "range": "GT238:GV240"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "GT243:GV245"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "LB",
+        "range": "GT248:GV250"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "GT253:GV255"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(Cap)",
+        "range": "GT258:GV260"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "z(RLT)",
+        "range": "GT263:GV265"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Aleatória S2nd",
+        "range": "GT268:GV270"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Radicand",
+        "range": "GT273:GV275"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "SQRT",
+        "range": "GT278:GV280"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "ND*ELT",
+        "range": "GT283:GV285"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Aleatória RLT",
+        "range": "GT288:GV290"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "ActualRotw",
+        "range": "GT293:GV295"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "GT298:GV300"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(demand)",
+        "range": "GT303:GV305"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "GT308:GV310"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "GT313:GV315"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Média(D*E(RLT))",
+        "range": "GT318:GV320"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "GT323:GV325"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "Erro > 0,01%",
+        "range": "GT328:GV330"
+    },
+    {
+        "grupo": "Factories",
+        "tabela": 9,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "GT6807:GV6809"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "P(Reorder)",
+        "range": "Z333:AB334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "P(Estado da arte)",
+        "range": "Z337:AB338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Reorder",
+        "range": "Z341:AB342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Var(Var(d))",
+        "range": "Z345:AB346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Var(Var(Cap))",
+        "range": "Z349:AB350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "CV",
+        "range": "Z353:AB354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Planned Stock",
+        "range": "Z357:AB358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "Z361:AB362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "demand",
+        "range": "Z365:AB366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Média(E(RLT))",
+        "range": "Z369:AB370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Cap",
+        "range": "Z373:AB374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Var(d-cap)",
+        "range": "Z377:AB378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "Z381:AB382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "Z385:AB386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Média(d-Cap)",
+        "range": "Z389:AB390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "Z393:AB394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "LB",
+        "range": "Z397:AB398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "Z401:AB402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(Cap)",
+        "range": "Z405:AB406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "z(RLT)",
+        "range": "Z409:AB410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Aleatória S2nd",
+        "range": "Z413:AB414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Radicand",
+        "range": "Z417:AB418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "SQRT",
+        "range": "Z421:AB422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "ND*ELT",
+        "range": "Z425:AB426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Aleatória RLT",
+        "range": "Z429:AB430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "ActualRotw",
+        "range": "Z433:AB434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "Z438:AB439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(demand)",
+        "range": "Z442:AB443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "Z446:AB447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "Z450:AB451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Média(D*E(RLT))",
+        "range": "Z454:AB455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "Z458:AB459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "Erro > 0,01%",
+        "range": "Z462:AB463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 1,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "Z6812:AB6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "P(Reorder)",
+        "range": "AV333:AX334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "P(Estado da arte)",
+        "range": "AV337:AX338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Reorder",
+        "range": "AV341:AX342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Var(Var(d))",
+        "range": "AV345:AX346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Var(Var(Cap))",
+        "range": "AV349:AX350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "CV",
+        "range": "AV353:AX354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Planned Stock",
+        "range": "AV357:AX358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "AV361:AX362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "demand",
+        "range": "AV365:AX366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Média(E(RLT))",
+        "range": "AV369:AX370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Cap",
+        "range": "AV373:AX374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Var(d-cap)",
+        "range": "AV377:AX378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "AV381:AX382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "AV385:AX386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Média(d-Cap)",
+        "range": "AV389:AX390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "AV393:AX394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "LB",
+        "range": "AV397:AX398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "AV401:AX402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(Cap)",
+        "range": "AV405:AX406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "z(RLT)",
+        "range": "AV409:AX410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Aleatória S2nd",
+        "range": "AV413:AX414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Radicand",
+        "range": "AV417:AX418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "SQRT",
+        "range": "AV421:AX422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "ND*ELT",
+        "range": "AV425:AX426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Aleatória RLT",
+        "range": "AV429:AX430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "ActualRotw",
+        "range": "AV433:AX434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "AV438:AX439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(demand)",
+        "range": "AV442:AX443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "AV446:AX447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "AV450:AX451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Média(D*E(RLT))",
+        "range": "AV454:AX455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "AV458:AX459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "Erro > 0,01%",
+        "range": "AV462:AX463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 2,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "AV6812:AX6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "P(Reorder)",
+        "range": "BR333:BT334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "P(Estado da arte)",
+        "range": "BR337:BT338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Reorder",
+        "range": "BR341:BT342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Var(Var(d))",
+        "range": "BR345:BT346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Var(Var(Cap))",
+        "range": "BR349:BT350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "CV",
+        "range": "BR353:BT354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Planned Stock",
+        "range": "BR357:BT358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "BR361:BT362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "demand",
+        "range": "BR365:BT366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Média(E(RLT))",
+        "range": "BR369:BT370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Cap",
+        "range": "BR373:BT374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Var(d-cap)",
+        "range": "BR377:BT378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "BR381:BT382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "BR385:BT386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Média(d-Cap)",
+        "range": "BR389:BT390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "BR393:BT394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "LB",
+        "range": "BR397:BT398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "BR401:BT402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(Cap)",
+        "range": "BR405:BT406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "z(RLT)",
+        "range": "BR409:BT410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Aleatória S2nd",
+        "range": "BR413:BT414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Radicand",
+        "range": "BR417:BT418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "SQRT",
+        "range": "BR421:BT422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "ND*ELT",
+        "range": "BR425:BT426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Aleatória RLT",
+        "range": "BR429:BT430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "ActualRotw",
+        "range": "BR433:BT434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "BR438:BT439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(demand)",
+        "range": "BR442:BT443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "BR446:BT447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "BR450:BT451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Média(D*E(RLT))",
+        "range": "BR454:BT455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "BR458:BT459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "Erro > 0,01%",
+        "range": "BR462:BT463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 3,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "BR6812:BT6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "P(Reorder)",
+        "range": "CN333:CP334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "P(Estado da arte)",
+        "range": "CN337:CP338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Reorder",
+        "range": "CN341:CP342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Var(Var(d))",
+        "range": "CN345:CP346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Var(Var(Cap))",
+        "range": "CN349:CP350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "CV",
+        "range": "CN353:CP354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Planned Stock",
+        "range": "CN357:CP358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "CN361:CP362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "demand",
+        "range": "CN365:CP366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Média(E(RLT))",
+        "range": "CN369:CP370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Cap",
+        "range": "CN373:CP374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Var(d-cap)",
+        "range": "CN377:CP378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "CN381:CP382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "CN385:CP386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Média(d-Cap)",
+        "range": "CN389:CP390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "CN393:CP394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "LB",
+        "range": "CN397:CP398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "CN401:CP402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(Cap)",
+        "range": "CN405:CP406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "z(RLT)",
+        "range": "CN409:CP410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Aleatória S2nd",
+        "range": "CN413:CP414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Radicand",
+        "range": "CN417:CP418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "SQRT",
+        "range": "CN421:CP422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "ND*ELT",
+        "range": "CN425:CP426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Aleatória RLT",
+        "range": "CN429:CP430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "ActualRotw",
+        "range": "CN433:CP434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "CN438:CP439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(demand)",
+        "range": "CN442:CP443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "CN446:CP447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "CN450:CP451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Média(D*E(RLT))",
+        "range": "CN454:CP455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "CN458:CP459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "Erro > 0,01%",
+        "range": "CN462:CP463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 4,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "CN6812:CP6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "P(Reorder)",
+        "range": "DJ333:DL334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "P(Estado da arte)",
+        "range": "DJ337:DL338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Reorder",
+        "range": "DJ341:DL342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Var(Var(d))",
+        "range": "DJ345:DL346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Var(Var(Cap))",
+        "range": "DJ349:DL350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "CV",
+        "range": "DJ353:DL354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Planned Stock",
+        "range": "DJ357:DL358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "DJ361:DL362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "demand",
+        "range": "DJ365:DL366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Média(E(RLT))",
+        "range": "DJ369:DL370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Cap",
+        "range": "DJ373:DL374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Var(d-cap)",
+        "range": "DJ377:DL378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "DJ381:DL382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "DJ385:DL386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Média(d-Cap)",
+        "range": "DJ389:DL390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "DJ393:DL394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "LB",
+        "range": "DJ397:DL398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "DJ401:DL402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(Cap)",
+        "range": "DJ405:DL406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "z(RLT)",
+        "range": "DJ409:DL410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Aleatória S2nd",
+        "range": "DJ413:DL414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Radicand",
+        "range": "DJ417:DL418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "SQRT",
+        "range": "DJ421:DL422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "ND*ELT",
+        "range": "DJ425:DL426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Aleatória RLT",
+        "range": "DJ429:DL430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "ActualRotw",
+        "range": "DJ433:DL434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "DJ438:DL439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(demand)",
+        "range": "DJ442:DL443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "DJ446:DL447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "DJ450:DL451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Média(D*E(RLT))",
+        "range": "DJ454:DL455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "DJ458:DL459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "Erro > 0,01%",
+        "range": "DJ462:DL463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 5,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "DJ6812:DL6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "P(Reorder)",
+        "range": "EF333:EH334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "P(Estado da arte)",
+        "range": "EF337:EH338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Reorder",
+        "range": "EF341:EH342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Var(Var(d))",
+        "range": "EF345:EH346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Var(Var(Cap))",
+        "range": "EF349:EH350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "CV",
+        "range": "EF353:EH354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Planned Stock",
+        "range": "EF357:EH358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "EF361:EH362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "demand",
+        "range": "EF365:EH366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Média(E(RLT))",
+        "range": "EF369:EH370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Cap",
+        "range": "EF373:EH374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Var(d-cap)",
+        "range": "EF377:EH378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "EF381:EH382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "EF385:EH386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Média(d-Cap)",
+        "range": "EF389:EH390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "EF393:EH394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "LB",
+        "range": "EF397:EH398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "EF401:EH402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(Cap)",
+        "range": "EF405:EH406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "z(RLT)",
+        "range": "EF409:EH410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Aleatória S2nd",
+        "range": "EF413:EH414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Radicand",
+        "range": "EF417:EH418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "SQRT",
+        "range": "EF421:EH422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "ND*ELT",
+        "range": "EF425:EH426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Aleatória RLT",
+        "range": "EF429:EH430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "ActualRotw",
+        "range": "EF433:EH434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "EF438:EH439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(demand)",
+        "range": "EF442:EH443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "EF446:EH447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "EF450:EH451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Média(D*E(RLT))",
+        "range": "EF454:EH455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "EF458:EH459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "Erro > 0,01%",
+        "range": "EF462:EH463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 6,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "EF6812:EH6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "P(Reorder)",
+        "range": "FB333:FD334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "P(Estado da arte)",
+        "range": "FB337:FD338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Reorder",
+        "range": "FB341:FD342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Var(Var(d))",
+        "range": "FB345:FD346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Var(Var(Cap))",
+        "range": "FB349:FD350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "CV",
+        "range": "FB353:FD354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Planned Stock",
+        "range": "FB357:FD358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FB361:FD362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "demand",
+        "range": "FB365:FD366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Média(E(RLT))",
+        "range": "FB369:FD370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Cap",
+        "range": "FB373:FD374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Var(d-cap)",
+        "range": "FB377:FD378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FB381:FD382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FB385:FD386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Média(d-Cap)",
+        "range": "FB389:FD390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FB393:FD394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "LB",
+        "range": "FB397:FD398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FB401:FD402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(Cap)",
+        "range": "FB405:FD406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "z(RLT)",
+        "range": "FB409:FD410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Aleatória S2nd",
+        "range": "FB413:FD414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Radicand",
+        "range": "FB417:FD418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "SQRT",
+        "range": "FB421:FD422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "ND*ELT",
+        "range": "FB425:FD426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Aleatória RLT",
+        "range": "FB429:FD430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "ActualRotw",
+        "range": "FB433:FD434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FB438:FD439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(demand)",
+        "range": "FB442:FD443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FB446:FD447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FB450:FD451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FB454:FD455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FB458:FD459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "Erro > 0,01%",
+        "range": "FB462:FD463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 7,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FB6812:FD6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "P(Reorder)",
+        "range": "FX333:FZ334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "P(Estado da arte)",
+        "range": "FX337:FZ338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Reorder",
+        "range": "FX341:FZ342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Var(Var(d))",
+        "range": "FX345:FZ346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Var(Var(Cap))",
+        "range": "FX349:FZ350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "CV",
+        "range": "FX353:FZ354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Planned Stock",
+        "range": "FX357:FZ358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FX361:FZ362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "demand",
+        "range": "FX365:FZ366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Média(E(RLT))",
+        "range": "FX369:FZ370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Cap",
+        "range": "FX373:FZ374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Var(d-cap)",
+        "range": "FX377:FZ378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FX381:FZ382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FX385:FZ386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Média(d-Cap)",
+        "range": "FX389:FZ390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FX393:FZ394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "LB",
+        "range": "FX397:FZ398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FX401:FZ402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(Cap)",
+        "range": "FX405:FZ406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "z(RLT)",
+        "range": "FX409:FZ410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Aleatória S2nd",
+        "range": "FX413:FZ414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Radicand",
+        "range": "FX417:FZ418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "SQRT",
+        "range": "FX421:FZ422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "ND*ELT",
+        "range": "FX425:FZ426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Aleatória RLT",
+        "range": "FX429:FZ430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "ActualRotw",
+        "range": "FX433:FZ434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FX438:FZ439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(demand)",
+        "range": "FX442:FZ443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FX446:FZ447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FX450:FZ451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FX454:FZ455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FX458:FZ459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "Erro > 0,01%",
+        "range": "FX462:FZ463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 8,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FX6812:FZ6813"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "P(Reorder)",
+        "range": "GT333:GV334"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "P(Estado da arte)",
+        "range": "GT337:GV338"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Reorder",
+        "range": "GT341:GV342"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Var(Var(d))",
+        "range": "GT345:GV346"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Var(Var(Cap))",
+        "range": "GT349:GV350"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "CV",
+        "range": "GT353:GV354"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Planned Stock",
+        "range": "GT357:GV358"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "GT361:GV362"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "demand",
+        "range": "GT365:GV366"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Média(E(RLT))",
+        "range": "GT369:GV370"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Cap",
+        "range": "GT373:GV374"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Var(d-cap)",
+        "range": "GT377:GV378"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "GT381:GV382"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "GT385:GV386"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Média(d-Cap)",
+        "range": "GT389:GV390"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "GT393:GV394"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "LB",
+        "range": "GT397:GV398"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "GT401:GV402"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(Cap)",
+        "range": "GT405:GV406"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "z(RLT)",
+        "range": "GT409:GV410"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Aleatória S2nd",
+        "range": "GT413:GV414"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Radicand",
+        "range": "GT417:GV418"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "SQRT",
+        "range": "GT421:GV422"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "ND*ELT",
+        "range": "GT425:GV426"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Aleatória RLT",
+        "range": "GT429:GV430"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "ActualRotw",
+        "range": "GT433:GV434"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "GT438:GV439"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(demand)",
+        "range": "GT442:GV443"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "GT446:GV447"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "GT450:GV451"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Média(D*E(RLT))",
+        "range": "GT454:GV455"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "GT458:GV459"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "Erro > 0,01%",
+        "range": "GT462:GV463"
+    },
+    {
+        "grupo": "Distributors",
+        "tabela": 9,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "GT6812:GV6813"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "P(Reorder)",
+        "range": "Z466:AB655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "P(Estado da arte)",
+        "range": "Z658:AB847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Reorder",
+        "range": "Z850:AB1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Var(Var(d))",
+        "range": "Z1042:AB1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Var(Var(Cap))",
+        "range": "Z1234:AB1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "CV",
+        "range": "Z1426:AB1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Planned Stock",
+        "range": "Z1618:AB1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "Z1810:AB1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "demand",
+        "range": "Z2002:AB2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Média(E(RLT))",
+        "range": "Z2194:AB2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Cap",
+        "range": "Z2386:AB2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Var(d-cap)",
+        "range": "Z2578:AB2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "Z2770:AB2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "Z2962:AB3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Média(d-Cap)",
+        "range": "Z3154:AB3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "Z3346:AB3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "LB",
+        "range": "Z3538:AB3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "Z3730:AB3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(Cap)",
+        "range": "Z3922:AB4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "z(RLT)",
+        "range": "Z4114:AB4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Aleatória S2nd",
+        "range": "Z4306:AB4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Radicand",
+        "range": "Z4498:AB4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "SQRT",
+        "range": "Z4690:AB4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "ND*ELT",
+        "range": "Z4882:AB5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Aleatória RLT",
+        "range": "Z5074:AB5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "ActualRotw",
+        "range": "Z5266:AB5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "Z5458:AB5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(demand)",
+        "range": "Z5650:AB5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "Z5842:AB6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "Z6034:AB6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Média(D*E(RLT))",
+        "range": "Z6226:AB6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "Z6418:AB6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "Erro > 0,01%",
+        "range": "Z6610:AB6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 1,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "Z6816:AB7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "P(Reorder)",
+        "range": "AV466:AX655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "P(Estado da arte)",
+        "range": "AV658:AX847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Reorder",
+        "range": "AV850:AX1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Var(Var(d))",
+        "range": "AV1042:AX1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Var(Var(Cap))",
+        "range": "AV1234:AX1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "CV",
+        "range": "AV1426:AX1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Planned Stock",
+        "range": "AV1618:AX1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "AV1810:AX1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "demand",
+        "range": "AV2002:AX2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Média(E(RLT))",
+        "range": "AV2194:AX2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Cap",
+        "range": "AV2386:AX2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Var(d-cap)",
+        "range": "AV2578:AX2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "AV2770:AX2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "AV2962:AX3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Média(d-Cap)",
+        "range": "AV3154:AX3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "AV3346:AX3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "LB",
+        "range": "AV3538:AX3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "AV3730:AX3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(Cap)",
+        "range": "AV3922:AX4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "z(RLT)",
+        "range": "AV4114:AX4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Aleatória S2nd",
+        "range": "AV4306:AX4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Radicand",
+        "range": "AV4498:AX4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "SQRT",
+        "range": "AV4690:AX4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "ND*ELT",
+        "range": "AV4882:AX5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Aleatória RLT",
+        "range": "AV5074:AX5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "ActualRotw",
+        "range": "AV5266:AX5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "AV5458:AX5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(demand)",
+        "range": "AV5650:AX5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "AV5842:AX6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "AV6034:AX6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Média(D*E(RLT))",
+        "range": "AV6226:AX6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "AV6418:AX6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "Erro > 0,01%",
+        "range": "AV6610:AX6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 2,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "AV6816:AX7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "P(Reorder)",
+        "range": "BR466:BT655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "P(Estado da arte)",
+        "range": "BR658:BT847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Reorder",
+        "range": "BR850:BT1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Var(Var(d))",
+        "range": "BR1042:BT1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Var(Var(Cap))",
+        "range": "BR1234:BT1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "CV",
+        "range": "BR1426:BT1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Planned Stock",
+        "range": "BR1618:BT1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "BR1810:BT1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "demand",
+        "range": "BR2002:BT2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Média(E(RLT))",
+        "range": "BR2194:BT2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Cap",
+        "range": "BR2386:BT2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Var(d-cap)",
+        "range": "BR2578:BT2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "BR2770:BT2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "BR2962:BT3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Média(d-Cap)",
+        "range": "BR3154:BT3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "BR3346:BT3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "LB",
+        "range": "BR3538:BT3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "BR3730:BT3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(Cap)",
+        "range": "BR3922:BT4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "z(RLT)",
+        "range": "BR4114:BT4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Aleatória S2nd",
+        "range": "BR4306:BT4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Radicand",
+        "range": "BR4498:BT4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "SQRT",
+        "range": "BR4690:BT4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "ND*ELT",
+        "range": "BR4882:BT5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Aleatória RLT",
+        "range": "BR5074:BT5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "ActualRotw",
+        "range": "BR5266:BT5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "BR5458:BT5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(demand)",
+        "range": "BR5650:BT5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "BR5842:BT6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "BR6034:BT6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Média(D*E(RLT))",
+        "range": "BR6226:BT6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "BR6418:BT6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "Erro > 0,01%",
+        "range": "BR6610:BT6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 3,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "BR6816:BT7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "P(Reorder)",
+        "range": "CN466:CP655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "P(Estado da arte)",
+        "range": "CN658:CP847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Reorder",
+        "range": "CN850:CP1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Var(Var(d))",
+        "range": "CN1042:CP1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Var(Var(Cap))",
+        "range": "CN1234:CP1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "CV",
+        "range": "CN1426:CP1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Planned Stock",
+        "range": "CN1618:CP1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "CN1810:CP1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "demand",
+        "range": "CN2002:CP2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Média(E(RLT))",
+        "range": "CN2194:CP2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Cap",
+        "range": "CN2386:CP2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Var(d-cap)",
+        "range": "CN2578:CP2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "CN2770:CP2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "CN2962:CP3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Média(d-Cap)",
+        "range": "CN3154:CP3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "CN3346:CP3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "LB",
+        "range": "CN3538:CP3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "CN3730:CP3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(Cap)",
+        "range": "CN3922:CP4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "z(RLT)",
+        "range": "CN4114:CP4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Aleatória S2nd",
+        "range": "CN4306:CP4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Radicand",
+        "range": "CN4498:CP4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "SQRT",
+        "range": "CN4690:CP4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "ND*ELT",
+        "range": "CN4882:CP5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Aleatória RLT",
+        "range": "CN5074:CP5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "ActualRotw",
+        "range": "CN5266:CP5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "CN5458:CP5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(demand)",
+        "range": "CN5650:CP5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "CN5842:CP6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "CN6034:CP6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Média(D*E(RLT))",
+        "range": "CN6226:CP6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "CN6418:CP6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "Erro > 0,01%",
+        "range": "CN6610:CP6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 4,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "CN6816:CP7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "P(Reorder)",
+        "range": "DJ466:DL655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "P(Estado da arte)",
+        "range": "DJ658:DL847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Reorder",
+        "range": "DJ850:DL1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Var(Var(d))",
+        "range": "DJ1042:DL1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Var(Var(Cap))",
+        "range": "DJ1234:DL1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "CV",
+        "range": "DJ1426:DL1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Planned Stock",
+        "range": "DJ1618:DL1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "DJ1810:DL1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "demand",
+        "range": "DJ2002:DL2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Média(E(RLT))",
+        "range": "DJ2194:DL2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Cap",
+        "range": "DJ2386:DL2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Var(d-cap)",
+        "range": "DJ2578:DL2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "DJ2770:DL2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "DJ2962:DL3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Média(d-Cap)",
+        "range": "DJ3154:DL3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "DJ3346:DL3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "LB",
+        "range": "DJ3538:DL3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "DJ3730:DL3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(Cap)",
+        "range": "DJ3922:DL4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "z(RLT)",
+        "range": "DJ4114:DL4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Aleatória S2nd",
+        "range": "DJ4306:DL4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Radicand",
+        "range": "DJ4498:DL4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "SQRT",
+        "range": "DJ4690:DL4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "ND*ELT",
+        "range": "DJ4882:DL5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Aleatória RLT",
+        "range": "DJ5074:DL5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "ActualRotw",
+        "range": "DJ5266:DL5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "DJ5458:DL5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(demand)",
+        "range": "DJ5650:DL5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "DJ5842:DL6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "DJ6034:DL6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Média(D*E(RLT))",
+        "range": "DJ6226:DL6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "DJ6418:DL6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "Erro > 0,01%",
+        "range": "DJ6610:DL6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 5,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "DJ6816:DL7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "P(Reorder)",
+        "range": "EF466:EH655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "P(Estado da arte)",
+        "range": "EF658:EH847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Reorder",
+        "range": "EF850:EH1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Var(Var(d))",
+        "range": "EF1042:EH1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Var(Var(Cap))",
+        "range": "EF1234:EH1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "CV",
+        "range": "EF1426:EH1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Planned Stock",
+        "range": "EF1618:EH1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "EF1810:EH1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "demand",
+        "range": "EF2002:EH2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Média(E(RLT))",
+        "range": "EF2194:EH2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Cap",
+        "range": "EF2386:EH2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Var(d-cap)",
+        "range": "EF2578:EH2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "EF2770:EH2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "EF2962:EH3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Média(d-Cap)",
+        "range": "EF3154:EH3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "EF3346:EH3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "LB",
+        "range": "EF3538:EH3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "EF3730:EH3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(Cap)",
+        "range": "EF3922:EH4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "z(RLT)",
+        "range": "EF4114:EH4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Aleatória S2nd",
+        "range": "EF4306:EH4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Radicand",
+        "range": "EF4498:EH4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "SQRT",
+        "range": "EF4690:EH4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "ND*ELT",
+        "range": "EF4882:EH5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Aleatória RLT",
+        "range": "EF5074:EH5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "ActualRotw",
+        "range": "EF5266:EH5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "EF5458:EH5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(demand)",
+        "range": "EF5650:EH5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "EF5842:EH6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "EF6034:EH6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Média(D*E(RLT))",
+        "range": "EF6226:EH6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "EF6418:EH6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "Erro > 0,01%",
+        "range": "EF6610:EH6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 6,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "EF6816:EH7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "P(Reorder)",
+        "range": "FB466:FD655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "P(Estado da arte)",
+        "range": "FB658:FD847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Reorder",
+        "range": "FB850:FD1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Var(Var(d))",
+        "range": "FB1042:FD1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Var(Var(Cap))",
+        "range": "FB1234:FD1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "CV",
+        "range": "FB1426:FD1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Planned Stock",
+        "range": "FB1618:FD1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FB1810:FD1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "demand",
+        "range": "FB2002:FD2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Média(E(RLT))",
+        "range": "FB2194:FD2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Cap",
+        "range": "FB2386:FD2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Var(d-cap)",
+        "range": "FB2578:FD2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FB2770:FD2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FB2962:FD3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Média(d-Cap)",
+        "range": "FB3154:FD3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FB3346:FD3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "LB",
+        "range": "FB3538:FD3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FB3730:FD3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(Cap)",
+        "range": "FB3922:FD4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "z(RLT)",
+        "range": "FB4114:FD4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Aleatória S2nd",
+        "range": "FB4306:FD4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Radicand",
+        "range": "FB4498:FD4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "SQRT",
+        "range": "FB4690:FD4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "ND*ELT",
+        "range": "FB4882:FD5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Aleatória RLT",
+        "range": "FB5074:FD5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "ActualRotw",
+        "range": "FB5266:FD5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FB5458:FD5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(demand)",
+        "range": "FB5650:FD5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FB5842:FD6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FB6034:FD6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FB6226:FD6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FB6418:FD6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "Erro > 0,01%",
+        "range": "FB6610:FD6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 7,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FB6816:FD7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "P(Reorder)",
+        "range": "FX466:FZ655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "P(Estado da arte)",
+        "range": "FX658:FZ847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Reorder",
+        "range": "FX850:FZ1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Var(Var(d))",
+        "range": "FX1042:FZ1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Var(Var(Cap))",
+        "range": "FX1234:FZ1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "CV",
+        "range": "FX1426:FZ1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Planned Stock",
+        "range": "FX1618:FZ1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "FX1810:FZ1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "demand",
+        "range": "FX2002:FZ2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Média(E(RLT))",
+        "range": "FX2194:FZ2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Cap",
+        "range": "FX2386:FZ2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Var(d-cap)",
+        "range": "FX2578:FZ2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "FX2770:FZ2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "FX2962:FZ3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Média(d-Cap)",
+        "range": "FX3154:FZ3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "FX3346:FZ3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "LB",
+        "range": "FX3538:FZ3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "FX3730:FZ3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(Cap)",
+        "range": "FX3922:FZ4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "z(RLT)",
+        "range": "FX4114:FZ4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Aleatória S2nd",
+        "range": "FX4306:FZ4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Radicand",
+        "range": "FX4498:FZ4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "SQRT",
+        "range": "FX4690:FZ4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "ND*ELT",
+        "range": "FX4882:FZ5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Aleatória RLT",
+        "range": "FX5074:FZ5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "ActualRotw",
+        "range": "FX5266:FZ5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "FX5458:FZ5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(demand)",
+        "range": "FX5650:FZ5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "FX5842:FZ6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "FX6034:FZ6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Média(D*E(RLT))",
+        "range": "FX6226:FZ6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "FX6418:FZ6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "Erro > 0,01%",
+        "range": "FX6610:FZ6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 8,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "FX6816:FZ7005"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "P(Reorder)",
+        "range": "GT466:GV655"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "P(Estado da arte)",
+        "range": "GT658:GV847"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Reorder",
+        "range": "GT850:GV1039"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Var(Var(d))",
+        "range": "GT1042:GV1231"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Var(Var(Cap))",
+        "range": "GT1234:GV1423"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "CV",
+        "range": "GT1426:GV1615"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Planned Stock",
+        "range": "GT1618:GV1807"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Variance coeff - z(S2nd)",
+        "range": "GT1810:GV1999"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "demand",
+        "range": "GT2002:GV2191"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Média(E(RLT))",
+        "range": "GT2194:GV2383"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Cap",
+        "range": "GT2386:GV2575"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Var(d-cap)",
+        "range": "GT2578:GV2767"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Desvpad(Var(S2nd))",
+        "range": "GT2770:GV2959"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(E(RLT)))",
+        "range": "GT2962:GV3151"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Média(d-Cap)",
+        "range": "GT3154:GV3343"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(Var(d-cap))",
+        "range": "GT3346:GV3535"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "LB",
+        "range": "GT3538:GV3727"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(ND*ELT)",
+        "range": "GT3730:GV3919"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(Cap)",
+        "range": "GT3922:GV4111"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "z(RLT)",
+        "range": "GT4114:GV4303"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Aleatória S2nd",
+        "range": "GT4306:GV4495"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Radicand",
+        "range": "GT4498:GV4687"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "SQRT",
+        "range": "GT4690:GV4879"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "ND*ELT",
+        "range": "GT4882:GV5071"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Aleatória RLT",
+        "range": "GT5074:GV5263"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "ActualRotw",
+        "range": "GT5266:GV5455"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "vMaxNumOfCyclesw",
+        "range": "GT5458:GV5647"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(demand)",
+        "range": "GT5650:GV5839"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(E(RLT))",
+        "range": "GT5842:GV6031"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(D*E(RLT))",
+        "range": "GT6034:GV6223"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Média(D*E(RLT))",
+        "range": "GT6226:GV6415"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Reorder(Estado da arte)",
+        "range": "GT6418:GV6607"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "Erro > 0,01%",
+        "range": "GT6610:GV6799"
+    },
+    {
+        "grupo": "Retailers",
+        "tabela": 9,
+        "variavel": "DesvPad(D*ELT)",
+        "range": "GT6816:GV7005"
+    }
+]
