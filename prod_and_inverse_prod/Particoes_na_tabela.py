@@ -2,7 +2,7 @@
 
 
 class PosicoesParametros:
-    def __init__(self,sigmaxart,sigmayart,constart,muxart,muy,mux1,sigmax1,sigmay,mux2,sigmax2,reoder_c,saidadesvpad,saidalbw,saidaprob,saidaprobart):
+    def __init__(self,sigmaxart,sigmayart,constart,muxart,muy,mux1,sigmax1,sigmay,mux2,sigmax2,reoder_c,saidaerro,saidadesvpad,saidalbw,saidaprob,saidaprobart, saidadesvart):
         self.SIGMAXART = sigmaxart
         self.SIGMAYART = sigmayart
         self.CONSTART = constart
@@ -14,12 +14,13 @@ class PosicoesParametros:
         self.MUX2 = mux2
         self.SIGMAX2 = sigmax2
         self.REODER_C = reoder_c
+        self.SAIDAERRO = saidaerro
         self.SAIDADESVPAD = saidadesvpad
+        self.SAIDADESVART = saidadesvart
         self.SAIDALBW = saidalbw
         self.SAIDAPROB = saidaprob
         self.SAIDAPROBART = saidaprobart
         
-
 class Particao:
     def __init__(self,coluna_inicio,linha_inicio,qtd_linhas,qtd_colunas,passo_coluna,passo_linha,num_matrizes,posicoes_parametros : PosicoesParametros):
         self.COLUNA_INICIO          = coluna_inicio
@@ -32,7 +33,6 @@ class Particao:
         self.NUM_MATRIZES           = num_matrizes
         self.POSICOES_PARAMETROS    = posicoes_parametros
 
-
 SUPLIERS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 138,  #   DesvPad(demand)
                                             sigmayart   = 143,  #   DesvPad(E(RLT))
                                             constart    = 158,  #   Reorder(Estado da arte)
@@ -44,12 +44,14 @@ SUPLIERS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 138,  #   DesvPad(dema
                                             mux2        = 73,   #   Média(d-Cap)
                                             sigmax2     = 78,   #   DesvPad(Var(d-cap))
                                             reoder_c    = 13,   #   Reorder
+                                            saidaerro   = 163,   #   Erro
                                             saidadesvpad= 88,   #   DesvPad(ND*ELT)
                                             saidalbw    = 83,   #   LB
                                             saidaprob   = 3,    #   P(Reorder)
-                                            saidaprobart= 8  )  #   P(Estado da arte)
+                                            saidaprobart= 8,  
+                                            saidadesvart  = 6802)  #   P(Estado da arte)
 # utilize essa variável para carregar todas as factores
-SUPLIERS_POSICOES = Particao(coluna_inicio      = 4,
+SUPLIERS_POSICOES = Particao(coluna_inicio      = 0,
                             linha_inicio        = 0,
                             qtd_linhas          = 3,
                             qtd_colunas         = 15,
@@ -59,7 +61,7 @@ SUPLIERS_POSICOES = Particao(coluna_inicio      = 4,
                             posicoes_parametros = SUPLIERS_VAR_POSICOES)
 
 
-FACTORS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 303,
+FACTORS_VAR_POSICOES = PosicoesParametros(  sigmaxart   = 303,
                                             sigmayart   = 308,
                                             constart    = 323,
                                             muxart      = 208,
@@ -69,13 +71,15 @@ FACTORS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 303,
                                             sigmay      = 233,
                                             mux2        = 238,
                                             sigmax2     = 243,
-                                            reoder_c    = 323,
+                                            reoder_c    = 178,
+                                            saidaerro   = 328,
                                             saidadesvpad= 253,
                                             saidalbw    = 248,
                                             saidaprob   = 168,
-                                            saidaprobart= 173  )
+                                            saidaprobart= 173,
+                                            saidadesvart  = 6807)
 # utilize essa variável para carregar todas as factores
-FACTORS_POSICOES = Particao(coluna_inicio      = 4,
+FACTORS_POSICOES = Particao(coluna_inicio      = 0,
                             linha_inicio        = 0,
                             qtd_linhas          = 3,
                             qtd_colunas         = 3,
@@ -96,17 +100,19 @@ DISTRIBUTORS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 442,
                                             mux2        = 389,
                                             sigmax2     = 393,
                                             reoder_c    = 341,
+                                            saidaerro   = 462,
                                             saidadesvpad= 401,
                                             saidalbw    = 397,
                                             saidaprob   = 333,
-                                            saidaprobart= 337  )
+                                            saidaprobart= 337,
+                                            saidadesvart  = 6812 )
 # utilize essa variável para carregar todas as factores
-DISTRIBUTORS_POSICOES = Particao(coluna_inicio      = 4,
+DISTRIBUTORS_POSICOES = Particao(coluna_inicio      = 0,
                             linha_inicio        = 0,
                             qtd_linhas          = 2,
                             qtd_colunas         = 3,
                             passo_linha         = 0,
-                            passo_coluna        = 22,
+                            passo_coluna        = 19,
                             num_matrizes        = 9,
                             posicoes_parametros = DISTRIBUTORS_VAR_POSICOES)
 
@@ -122,17 +128,19 @@ RETAILERS_VAR_POSICOES = PosicoesParametros( sigmaxart   = 5650,
                                             mux2        = 3154,
                                             sigmax2     = 3346,
                                             reoder_c    = 850,
+                                            saidaerro   = 6610,
                                             saidadesvpad= 3730,
                                             saidalbw    = 3538,
                                             saidaprob   = 466,
-                                            saidaprobart= 658  )
+                                            saidaprobart= 658,
+                                            saidadesvart  = 6816)
 # utilize essa variável para carregar todas as factores
-RETAILERS_POSICOES = Particao(coluna_inicio      = 4,
+RETAILERS_POSICOES = Particao(coluna_inicio      = 0,
                             linha_inicio        = 0,
                             qtd_linhas          = 190,
                             qtd_colunas         = 3,
                             passo_linha         = 0,
-                            passo_coluna        = 22,
+                            passo_coluna        = 19,
                             num_matrizes        = 9,
                             posicoes_parametros = RETAILERS_VAR_POSICOES)
 

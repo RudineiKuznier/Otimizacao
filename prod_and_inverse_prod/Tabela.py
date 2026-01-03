@@ -8,7 +8,7 @@ mutex = threading.Lock()
 class Parametros:
     def __init__(self, muy, mux1, sigmax1, sigmay, mux2, sigmax2,
                  linha_salvar, coluna_salvar, nome_tabela, pagina_tabela,
-                 reorder, sigxart, sigyart, constart, muxart,
+                 reorder, sigxart, sigyart, constart, muxart,error,lw, desv, prob, probart,desv_art,
                  posicoes_parametros: PosicoesParametros):
         self.muy = muy
         self.mux1 = mux1
@@ -25,17 +25,23 @@ class Parametros:
         self.sigyart = sigyart
         self.constart = constart
         self.muxart = muxart
-        self.lw = 0
-        self.desv = 0
-        self.prob = 0
-        self.probart = 0
+        self.error = error
+        self.lw = lw
+        self.desv = desv
+        self.desv_art = desv_art
+        self.prob = prob
+        self.probart = probart
         self.posicoes_parametros = posicoes_parametros  # 🔹 chave para salvar corretamente
 
     def __repr__(self):
         return (f"Tabela : {self.nome_tabela} , Página : {self.pagina_tabela}"
                 f"Parâmetros: muy={self.muy}, mux1={self.mux1}, sigmax1={self.sigmax1}, "
                 f"sigmay={self.sigmay}, mux2={self.mux2}, sigmax2={self.sigmax2}, "
-                f"linha salvar ={self.linha_salvar}, coluna salvar={self.coluna_salvar}")
+                f"linha salvar ={self.linha_salvar}, coluna salvar={self.coluna_salvar}"
+                f"reorder={self.reorder}, sigxart={self.sigxart}, sigyart={self.sigyart}, "
+                f"constart={self.constart}, muxart={self.muxart}, error={self.error}, "
+                f"lw={self.lw}, desv={self.desv}, prob={self.prob}, probart={self.probart}"
+                )
 
 
 class Tabela:
@@ -51,7 +57,7 @@ class Tabela:
     def removerArquivoDaRam(self):
         self.arquivo.close()
 
-    def carregarMatriz(self, particao: Particao, pagina: str, tabela: int) -> list[Parametros]:
+    def carregarMatriz(self, particao: Particao, pagina: str, tabela: int,coluna_inicio : int = 4) -> list[Parametros]:
         """Carrega uma matriz com base na definição de partição passada."""
         lista = []
         if self.arquivo is None:
@@ -66,6 +72,7 @@ class Tabela:
             print(f" --------- LENDO MATRIZ {tabela} ---------")
 
             pos = particao.POSICOES_PARAMETROS
+            particao.COLUNA_INICIO = coluna_inicio
             shift_coluna = particao.COLUNA_INICIO + (tabela * (particao.PASSO_COLUNA + particao.QTD_COLUNAS))
             shift_linha = particao.LINHA_INICIO
 
@@ -82,7 +89,12 @@ class Tabela:
                     mux2 = sheet.cell(row=pos.MUX2 + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
                     sigmax2 = sheet.cell(row=pos.SIGMAX2 + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
                     reorder_c = sheet.cell(row=pos.REODER_C + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
-
+                    saidaerro = sheet.cell(row=pos.SAIDAERRO + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    saidalbw = sheet.cell(row=pos.SAIDALBW + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    saidadesvpad = sheet.cell(row=pos.SAIDADESVPAD + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    saidaprob = sheet.cell(row=pos.SAIDAPROB + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    saidaprobart = sheet.cell(row=pos.SAIDAPROBART + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
+                    saidadesvart = sheet.cell(row=pos.SAIDADESVART + linha + shift_linha, column=shift_coluna + coluna).value or 0.0
                     parametro = Parametros(
                         muy=muy, mux1=mux1, sigmax1=sigmax1, sigmay=sigmay,
                         mux2=mux2, sigmax2=sigmax2,
@@ -91,6 +103,7 @@ class Tabela:
                         nome_tabela=self.localENome, pagina_tabela=pagina,
                         reorder=reorder_c, sigxart=sigxart, sigyart=sigyart,
                         constart=constart, muxart=muxart,
+                        error=saidaerro, lw=saidalbw, desv=saidadesvpad, prob=saidaprob, probart=saidaprobart, desv_art=saidadesvart,
                         posicoes_parametros=pos
                     )
                     if (False):
@@ -109,7 +122,6 @@ class Tabela:
                         print(f"Valores finais: sigxart={sigxart}, sigyart={sigyart}, constart={constart}, muxart={muxart}, muy={muy}, mux1={mux1}, sigmax1={sigmax1}, sigmay={sigmay}, mux2={mux2}, sigmax2={sigmax2}, reorder_c={reorder_c}")
                         
                     lista.append(parametro)
-
             return lista
 
         except Exception as e:
@@ -145,7 +157,8 @@ class Tabela:
                     self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDALBW, column=p.coluna_salvar).value = p.lw
                     self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDAPROB, column=p.coluna_salvar).value = p.prob
                     self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDAPROBART, column=p.coluna_salvar).value = p.probart
-
+                    self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDAERRO, column=p.coluna_salvar).value = p.error
+                    self.arquivo[parametros[0].pagina_tabela].cell(row=p.linha_salvar + pos.SAIDADESVART, column=p.coluna_salvar).value = p.desv_art
                 self.arquivo.save(parametros[0].nome_tabela)
             except Exception as e:
                 print(f"Erro ao salvar arquivo: {e}")
@@ -154,21 +167,21 @@ class Tabela:
 
 # ----------------- TESTE -----------------
 # if __name__ == "__main__":
-#     tabela = Tabela()
-#     tabela.carregarArquivoParaRam(localENome="Stock_Data_in_days_cv_02_5V.xlsx")
-#     supliers = tabela.carregarMatriz(SUPLIERS_POSICOES,"Main_variables",tabela=0)
-#     factors = tabela.carregarMatriz(FACTORS_POSICOES,"Main_variables",tabela=0)
-#     distributors = tabela.carregarMatriz(DISTRIBUTORS_POSICOES,"Main_variables",tabela=0)
-#     retails = tabela.carregarMatriz(RETAILERS_POSICOES,"Main_variables",tabela=0)
+# tabela = Tabela()
+# tabela.carregarArquivoParaRam(localENome="Stock_Data_in_days_cv_02_5V.xlsx")
+# supliers = tabela.carregarMatriz(SUPLIERS_POSICOES,"Main_variables",tabela=0)
+# factors = tabela.carregarMatriz(FACTORS_POSICOES,"Main_variables",tabela=0)
+# distributors = tabela.carregarMatriz(DISTRIBUTORS_POSICOES,"Main_variables",tabela=0)
+# retails = tabela.carregarMatriz(RETAILERS_POSICOES,"Main_variables",tabela=0)
 
-#     parametros = supliers + factors + distributors + retails
-#     for p in parametros:
-#         p.lw = -20
-#         p.desv = -21
-#         p.prob = -22
-#         p.probart = -25
-        
-#     tabela.salvarEmLote(parametros)
+# parametros = supliers + factors + distributors + retails
+# for p in parametros:
+#     p.lw = -20
+#     p.desv = -21
+#     p.prob = -22
+#     p.probart = -25
+    
+# tabela.salvarEmLote(parametros)
 
 
-#     tabela.removerArquivoDaRam()
+# tabela.removerArquivoDaRam()
